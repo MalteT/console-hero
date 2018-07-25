@@ -6,6 +6,7 @@ extern crate textwrap;
 #[macro_use]
 extern crate serde_derive;
 extern crate colored;
+extern crate pad;
 
 mod data;
 

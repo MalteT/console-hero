@@ -1,6 +1,6 @@
 [package]
 name = "console-hero"
-version = "0.1.0"
+version = "0.1.2"
 authors = ["Malte Tammena <malte.tammena@gmx.de>"]
 
 [dependencies]
@@ -15,3 +15,4 @@ serde_derive = "1.0.70"
 serde = "1.0.70"
 textwrap = "0.10.0"
 colored = "1.6.1"
+pad = "0.1.5"
