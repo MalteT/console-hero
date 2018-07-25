@@ -10,7 +10,6 @@ use std::io;
 use std::io::Read;
 use std::io::{Error, ErrorKind::InvalidData};
 use std::ops::{Deref, DerefMut};
-use textwrap::wrap_iter;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Monsters {
@@ -57,7 +56,7 @@ impl Monsters {
     pub fn parse<R: Read>(reader: R) -> io::Result<Self> {
         serde_json::from_reader(reader)
             .map(|data| Monsters { data })
-            .map_err(|e| io::Error::new(InvalidData, e))
+            .map_err(|e| Error::new(InvalidData, e))
     }
     /// Find a move that matches the given String `regex`.
     /// Matches the given fields in the given order:
@@ -105,7 +104,9 @@ impl fmt::Display for Monster {
             s
         });
         // Attacks
-        let attacks = self.attacks.iter().map(|attack| format!("{}", attack))
+        let attacks = self.attacks
+            .iter()
+            .map(|attack| format!("{}", attack))
             .map(|attack| expand(&attack, width - 2));
         let mut attacks = concat(attacks, ", ");
         if attacks == "" {
@@ -156,7 +157,10 @@ impl DerefMut for Monsters {
 impl fmt::Display for Attack {
     fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
         let tags = concat(self.tags.iter().map(|tag| capitalize(tag)), ", ");
-        let s = format!("{} ({}) {{}} {}", self.name, self.damage, tags);
+        let s = format!(
+            "{} ({}) {{}} {}",
+            self.name, self.damage, tags
+        );
         write!(f, "{}", s)
     }
 }
