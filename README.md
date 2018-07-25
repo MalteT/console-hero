@@ -15,7 +15,7 @@ Build and execute with `cargo run --release`.
  ┃ A Little Help From My Friends           ┃
  ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
  ┃ Class: bard                             ┃
- ┠──────────────────────────────────────────┨
+ ┠─────────────────────────────────────────┨
  ┃ When you successfully aid someone you   ┃
  ┃ take +1 forward as well.                ┃
  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
