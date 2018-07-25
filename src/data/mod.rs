@@ -17,4 +17,6 @@ fn wrap(text: &str, width: usize, left: &str, right: &str) -> String {
             s += &desc;
             s
         })
+        .trim_right_matches("\n")
+        .to_string()
 }
