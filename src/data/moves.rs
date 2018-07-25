@@ -1,3 +1,4 @@
+use colored::*;
 use regex::Regex;
 use rustyline;
 use rustyline::completion::Completer;
@@ -35,7 +36,7 @@ enum MatchType {
 
 impl Moves {
     /// Parse the data given through the reader into `Moves`.
-    pub fn parse<R: Read>(reader: R) -> io::Result<Moves> {
+    pub fn parse<R: Read>(reader: R) -> io::Result<Self> {
         serde_json::from_reader(reader)
             .map(|data| Moves { data })
             .map_err(|e| Error::new(InvalidData, e))
@@ -117,11 +118,11 @@ impl fmt::Display for Move {
  ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
  ┃ {:<38} ┃
  ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
- ┃ Class: {:<31} ┃
+ ┃ {} {:<31} ┃
  ┠────────────────────────────────────────┨
  {}
  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-", self.name, classes, desc.trim())
+", self.name.bold().yellow(), "Class:", classes, desc.trim())
     }
 }
 

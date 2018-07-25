@@ -5,6 +5,7 @@ extern crate serde_json;
 extern crate textwrap;
 #[macro_use]
 extern crate serde_derive;
+extern crate colored;
 
 mod data;
 
