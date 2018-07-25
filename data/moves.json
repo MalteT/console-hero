@@ -1,0 +1,1792 @@
+[
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you successfully aid someone you take +1 forward as well.",
+    "key": "a_little_help_from_my_friends",
+    "name": "A Little Help From My Friends"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you return to a civilized settlement you’ve visited before, tell the GM when you were last here. They’ll tell you how it’s changed since then.",
+    "key": "a_port_in_the_storm",
+    "name": "A Port in the Storm"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you set the watch for the night, everyone takes +1 to Take Watch.",
+    "key": "a_safe_place",
+    "name": "A Safe Place"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you set the watch for the night everyone takes +1 to Take Watch. After a night in camp when you set the watch everyone takes +1 forward.",
+    "key": "a_safer_place",
+    "name": "A Safer Place",
+    "replaces": "a_safe_place"
+  },
+  {
+    "description": "When you **help or hinder someone you have a Bond with**, roll+Bond with them. On a hit they take +1 or -2, your choice. On a 7–9 you also expose yourself to danger, retribution, or cost.",
+    "explanation": "Any time you feel like two players should be rolling against each other, the defender should be interfering with the attacker. This doesn’t always mean sabotaging them. It can mean anything from arguing against a parley to just being a shifty person who’s hard to discern. It’s about getting in the way of another players’ success.\n\nAlways ask the person aiding or interfering how they are doing it. As long as they can answer that, they trigger the move. Sometimes, as the GM, you’ll have to ask if interference is happening. Your players might not always notice they’re interfering with each other.\n\nAid is a little more obvious. If a player can explain how they’re helping with a move and it makes sense, let them roll to aid.\n\nNo matter how many people aid or interfere with a given roll, the target only gets the +1 or -2 once. Even if a whole party of adventurers aid in attacking an ogre, the one who makes the final attack only gets +1.\n\n\n*GM: Ozruk, you stand alone and bloodied before a pack of angry hellhounds. Behind you cowers the Prince of Lescia, weeping in terror.\n\nOzruk: I stand firm and lift my shield. Despite certain doom, I will do my duty and defend the princeling.\n\nAronwe: I emerge from the shadows and draw my sword! “Doom is not so certain, dwarf!” I stand beside him. I want to help him defend. “Though I do not know you well, I have seen you in battle, Ozruk. If we are to die today, we die as brothers!” I don’t have any bonds with him but I want to try anyway.\n\nGM: Touching, really. Okay, roll+0 and if you succeed, Ozruk, take +1 to your defend attempt. Here we go!*",
+    "key": "aid_or_interfere",
+    "name": "Aid or Interfere"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you have you have time to gather materials and a safe place to brew you can create three doses of any poison you’ve used before. Alternately you can describe the effects of a poison you’d like to create. The GM will tell you that you can create it, but with one or more caveats:\n\n - It will only work under specific circumstances\n - The best you can manage is a weaker version\n - It’ll take a while to take effect\n - It’ll have obvious side effects",
+    "key": "alchemist",
+    "name": "Alchemist",
+    "replaces": "brewer"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you hear an enemy cast a spell the GM will tell you the name of the spell and its effects. Take +1 forward when acting on the answers.",
+    "key": "an_ear_for_magic",
+    "name": "An Ear For Magic"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "You have a supernatural connection with a loyal animal. You can’t talk to it per se but it always acts as you wish it to. Name your animal companion and choose a species:\nWolf, cougar, bear, eagle, dog, hawk, cat, owl, pigeon, rat, mule\nChoose a base:\n\n - Ferocity +2, Cunning +1, 1 Armor, Instinct +1\n - Ferocity +2, Cunning +2, 0 Armor, Instinct +1\n - Ferocity +1, Cunning +2, 1 Armor, Instinct +1\n - Ferocity +3, Cunning +1, 1 Armor, Instinct +2\nChoose as many strengths as its ferocity:\nFast, burly, huge, calm, adaptable, quick reflexes, tireless, camouflage, ferocious, intimidating, keen senses, stealthy\nYour animal companion is trained to fight humanoids. Choose as many additional trainings as its cunning:\nHunt, search, scout, guard, fight monsters, perform, labor, travel\nChoose as many weaknesses as its instinct:\nFlighty, savage, slow, broken, frightening, forgetful, stubborn, lame",
+    "key": "animal_companion",
+    "name": "Animal Companion"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "Choose one spell in addition to the one you picked for chosen one. You are granted that spell as if it was one level lower.",
+    "key": "anointed",
+    "name": "Anointed",
+    "requires": "chosen_one"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "The first time you spend time in prayer as appropriate to your god after taking this move, choose a feature associated with your deity (rending claws, wings of sapphire feathers, an all-seeing third eye, etc.). When you emerge from prayer, you permanently gain that physical feature.",
+    "key": "apotheosis",
+    "name": "Apotheosis"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "As long as you have at least one prepared spell of first level or higher, you have +4 armor.",
+    "key": "arcane_armor",
+    "name": "Arcane Armor",
+    "replaces": "arcane_ward"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you **weave a performance into a basic spell**, choose an ally and an effect:\n\n - Heal 1d8 damage\n - +1d4 forward to damage\n - Their mind is shaken clear of one enchantment\n - The next time someone successfully assists the target with aid, they get +2 instead of +1\n\nThen roll+Cha.\n\n - On a 10+, the ally gets the selected effect.\n - On a 7-9, your spell still works, but you draw unwanted attention or your magic reverberates to other targets affecting them as well, GM’s choice",
+    "key": "arcane_art",
+    "name": "Arcane Art"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "As long as you have at least one prepared spell of first level or higher, you have +2 armor.",
+    "key": "arcane_ward",
+    "name": "Arcane Ward"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you make your armor take the brunt of damage dealt to you, the damage is negated but you must reduce the armor value of your armor or shield (your choice) by 1. The value is reduced each time you make this choice. If the reduction leaves the item with 0 armor it is destroyed.",
+    "key": "armor_mastery",
+    "name": "Armor Mastery"
+  },
+  {
+    "classes": [
+      "fighter",
+      "paladin"
+    ],
+    "description": "You ignore the clumsy tag on armor you wear.",
+    "key": "armored",
+    "name": "Armored"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you choose to let your armor take the brunt of damage dealt to you, the damage is negated and you take +1 forward against the attacker, but you must reduce the armor value of your armor or shield (your choice) by 1. The value is reduced each time you make this choice. If the reduction leaves the item with 0 armor it is destroyed.",
+    "key": "armored_perfection",
+    "name": "Armored Perfection",
+    "replaces": "armor_mastery"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you attack a surprised or defenseless enemy with a melee weapon, you can choose to deal your damage or roll+DEX. On a 10+ choose two. On a 7–9 choose one.\n\n - You don’t get into melee with them\n - You deal your damage+1d6\n - You create an advantage, +1 forward to you or an ally acting on it\n - Reduce their armor by 1 until they repair it",
+    "key": "backstab",
+    "name": "Backstab"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you deal damage, take 1 balance. When you touch someone and channel the spirits of life you may spend balance. For each balance spent, heal 1d4 HP.",
+    "key": "balance",
+    "name": "Balance"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you Parley with someone, on a 7+ you also take +1 forward with them.",
+    "key": "bamboozle",
+    "name": "Bamboozle"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you enter an important location (your call) you can ask the GM for one fact from the history of that location.",
+    "key": "bard_elf",
+    "name": "Elf"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you first enter a civilized settlement someone who respects the custom of hospitality to minstrels will take you in as their guest.",
+    "key": "bard_human",
+    "name": "Human"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "Choose an area of expertise:\n\n - Spells and Magicks\n - The Dead and Undead\n - Grand Histories of the Known World\n - A Bestiary of Creatures Unusual\n - The Planar Spheres\n - Legends of Heroes Past\n - Gods and Their Servants\n\nWhen you **first encounter an important creature, location, or item (your call) covered by your bardic lore** you can ask the GM any one question about it; the GM will answer truthfully. The GM may then ask you what tale, song, or legend you heard that information in.",
+    "key": "bardic_lore",
+    "name": "Bardic Lore"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "So long as your feet touch the ground you have +1 armor.",
+    "key": "barkskin",
+    "name": "Barkskin"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you use pure strength to destroy an inanimate obstacle, roll+Str. On a 10+, choose 3. On a 7-9 choose 2.\n\n - It doesn’t take a very long time\n - Nothing of value is damaged\n - It doesn’t make an inordinate amount of noise\n - You can fix the thing again without a lot of effort",
+    "key": "bend_bars_lift_gates",
+    "name": "Bend Bars, Lift Gates"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you have access to a forge you can graft the magical powers of a weapon onto your signature weapon. This process destroys the magical weapon. Your signature weapon gains the magical powers of the destroyed weapon.",
+    "key": "blacksmith",
+    "name": "Blacksmith"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you are in an appropriate animal form (something dangerous) increase your damage to d10.",
+    "key": "blood_and_thunder",
+    "name": "Blood and Thunder",
+    "replaces": "red_of_tooth_and_claw"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you deal damage, deal +1d8 damage.",
+    "key": "bloodthirsty",
+    "name": "Bloodthirsty",
+    "replaces": "merciless"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you take damage you can grit your teeth and accept the blow. If you do you take no damage but instead suffer a debility of your choice. If you already have all six debilities you can’t use this move.",
+    "key": "bloody_aegis",
+    "name": "Bloody Aegis"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you Volley you may spend extra ammo before rolling. For each point of ammo spent you may choose an extra target. Roll once and apply damage to all targets.",
+    "key": "blot_out_the_sun",
+    "name": "Blot Out the Sun"
+  },
+  {
+    "description": "When you **spend your leisure time in study, meditation, or hard practice**, you gain preparation. If you prepare for a week or more, take 1 preparation. If you prepare for a month or longer, take 3 instead. When your preparation pays off spend 1 preparation for +1 to any roll. You can only spend one preparation per roll.",
+    "key": "bolster",
+    "name": "Bolster"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "You learned your magic in a place whose spirits are strong and ancient and they’ve marked you as one of their own. No matter where you go, they live within you and allow you to take their shape. Choose one of the following. It is the land to which you are attuned—when shapeshifting you may take the shape of any animal who might live in your Land.\n\n - The Great Forests\n - The Whispering Plains\n - The Vast Desert\n - The Stinking Mire\n - The River Delta\n - The Depths of the Earth\n - The Sapphire Islands\n - The Open Sea\n - The Towering Mountains\n - The Frozen North\n - The Blasted Wasteland\nChose a tell—a physical attribute that marks you as born of the soil—that reflects the spirit of your land. It may be an animal feature like antlers or leopard’s spots or something more general: hair like leaves or eyes of glittering crystal. Your tell remains no matter what shape you take.",
+    "key": "born_of_the_soil",
+    "name": "Born of the Soil"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you have time to gather materials and a safe place to brew you can create three doses of any one poison you’ve used before.",
+    "key": "brewer",
+    "name": "Brewer"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "You don’t need to eat or drink. If a move tells you to mark off a ration just ignore it.",
+    "key": "by_nature_sustained",
+    "name": "By Nature Sustained"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you attack a defenseless or surprised enemy at range, you can choose to deal your damage or name your target and roll+DEX.\n\n - Head 10+: As 7–9, plus your damage 7-9: They do nothing but stand and drool for a few moments.\n - Arms 10+: As 7-9, plus your damage 7-9: They drop anything they’re holding.\n - Legs 10+: As 7-9, plus your damage 7-9: They’re hobbled and slow moving.",
+    "key": "called_shot",
+    "name": "Called Shot"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you keep still in natural surroundings, enemies never spot you until you make a movement.",
+    "key": "camouflage",
+    "name": "Camouflage"
+  },
+  {
+    "description": "When you return triumphant and throw a big party, spend 100 coins and roll +1 for every extra 100 coins spent. ✴On a 10+, choose 3. ✴On a 7–9, choose 1. ✴On a miss, you still choose one, but things get really out of hand (the GM will say how).\n\n - You befriend a useful NPC.\n - You hear rumors of an opportunity.\n - You gain useful information.\n - You are not entangled, ensorcelled, or tricked.\n\nYou can only carouse when you return triumphant. That’s what draws the crowd of revelers to surround adventurers as they celebrate their latest haul. If you don’t proclaim your success or your failure, then who would want to party with you anyway?",
+    "key": "carouse",
+    "name": "Carouse"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you unleash a spell granted to you by your deity, roll+Wis. On a 10+, the spell is successfully cast and your deity does not revoke the spell, so you may cast it again. On a 7–9, the spell is cast, but choose one:\n\n - You draw unwelcome attention or put yourself in a spot. The GM will tell you how.\n - Your casting distances you from your deity—take -1 ongoing to cast a spell until the next time you commune.\n - After you cast it, the spell is revoked by your deity. You cannot cast the spell again until you commune and have it granted to you.\nNote that maintaining spells with ongoing effects will sometimes cause a penalty to your roll to cast a spell.",
+    "key": "cast_a_spell_cleric",
+    "name": "Cast a Spell"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you release a spell you’ve prepared, roll+Int. On a 10+, the spell is successfully cast and you do not forget the spell—you may cast it again later. On a 7-9, the spell is cast, but choose one:\nYou draw unwelcome attention or put yourself in a spot. The GM will tell you how.\n\nThe spell disturbs the fabric of reality as it is cast—take -1 ongoing to cast a spell until the next time you Prepare Spells.\n\nAfter it is cast, the spell is forgotten. You cannot cast the spell again until you prepare spells.\n - You draw unwelcome attention or put yourself in a spot. The GM will tell you how.\n - The spell disturbs the fabric of reality as it is cast—take -1 ongoing to cast a spell until the next time you Prepare Spells.\n - After it is cast, the spell is forgotten. You cannot cast the spell again until you prepare spells.\nNote that maintaining spells with ongoing effects will sometimes cause a penalty to your roll to cast a spell.",
+    "key": "cast_a_spell_wizard",
+    "name": "Cast a Spell"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you use Trap Expert you always get +1 hold, even on a 6-.",
+    "key": "cautious",
+    "name": "Cautious"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you lead the charge into combat, those you lead take +1 forward.",
+    "key": "charge",
+    "name": "Charge!"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you **speak frankly with someone**, you can ask their player a question from the list below. They must answer it truthfully, then they may ask you a question from the list (which you must answer truthfully).\n\n - Whom do you serve?\n - What do you wish I would do?\n - How can I get you to __________?\n - What are you really feeling right now?\n - What do you most desire?",
+    "key": "charming_and_open",
+    "name": "Charming and Open"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When using a precise or hand weapon, your Backstab deals an extra +1d6 damage.",
+    "key": "cheap_shot",
+    "name": "Cheap Shot"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you Shapeshifter, you may create a merged form of up to three different shapes. You may be a bear with the wings of an eagle and the head of a ram, for example. Each feature will grant you a different move to make. Your chimera form follows the same rules as shapeshifter otherwise. ",
+    "key": "chimera",
+    "name": "Chimera"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "Choose one spell. You are granted that spell as if it was one level lower.",
+    "key": "chosen_one",
+    "name": "Chosen One"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "You are one with stone. When you Commune you are also granted a special version of Words of the Unspeaking as a rote which only works on stone.",
+    "key": "cleric_dwarf",
+    "name": "Dwarf"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "Your faith is diverse. Choose one wizard spell. You can cast and be granted that spell as if it was a cleric spell.",
+    "key": "cleric_human",
+    "name": "Human"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you work with your animal companion on something it’s trained in…\n\n - …and you attack the same target, add its ferocity to your damage\n - …and you track, add its cunning to your roll\n - …and you take damage, add its armor to your armor\n - …and you Discern Realities, add its cunning to your roll\n - …and you parley, add its cunning to your roll\n - …and someone interferes with you, add its instinct to their roll",
+    "key": "command",
+    "name": "Command"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you spend uninterrupted time (an hour or so) in quiet communion with your deity, you:\n\n - Lose any spells already granted to you.\n - Are granted new spells of your choice whose total levels don’t exceed your own level+1, and none of which is a higher level than your own level.\n - Prepare all of your rotes, which never count against your limit.",
+    "key": "commune",
+    "name": "Commune"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you spend time in a place, making note of its resident spirits and calling on the spirits of the land, roll+Wis. You will be granted a vision of significance to you, your allies, and the spirits around you. On a 10+ the vision will be clear and helpful to you. On a 7–9 the vision is unclear, its meaning murky. On a miss, the vision is upsetting, frightening, or traumatizing. The GM will describe it. Take -1 forward.",
+    "key": "communion_of_whispers",
+    "name": "Communion of Whispers"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you put out word to the criminal underbelly about something you want or need, roll+CHA. On a 10+, someone has it, just for you. On a 7–9, you’ll have to settle for something close or it comes with strings attached, your call.",
+    "key": "connections",
+    "name": "Connections"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you attempt to counter an arcane spell that will otherwise affect you, stake one of your prepared spells on the defense and roll+Int. On a 10+, the spell is countered and has no effect on you. On a 7-9, the spell is countered and you forget the spell you staked. Your counterspell protects only you; if the countered spell has other targets they get its effects.",
+    "key": "counterspell",
+    "name": "Counterspell"
+  },
+  {
+    "description": "When you stand in defense of a person, item, or location under attack, roll+Con. On a 10+, hold 3. On a 7–9, hold 1. So long as you stand in defense, when you or the thing you defend is attacked you may spend hold, 1 for 1, to choose an option:\n\n * Redirect an attack from the thing you defend to yourself\n * Halve the attack’s effect or damage\n * Open up the attacker to an ally giving that ally +1 forward against the attacker\n * Deal damage to the attacker equal to your level",
+    "explanation": "Defending something means standing nearby and focusing on preventing attacks against that thing or stopping anyone from getting near it. When you’re no longer nearby or you stop devoting your attention to incoming attacks then you lose any hold you might have had.\n\nYou can only spend hold when someone makes an attack on you or the thing you’re defending. The choices you can make depend on the attacker and the type of attack. In particular, you can’t deal damage to an attacker who you can’t reach with your weapon.\n\nAn attack is any action you can interfere with that has harmful effects. Swords and arrows are attacks, of course, but so are spells, grabs, and charges.\n\nIf the attack doesn’t deal damage then halving it means the attacker gets some of what they want but not all of it. It’s up to you and the GM to work out what that means depending on the circumstances. If you’re defending the Gem Eye of Oro-Uht and an orc tries to grab it from its pedestal then half effect might mean that the gem gets knocked to the floor but the orc doesn’t get his hands on it, yet. Or maybe the orc gets a hold of it but so do you—now you’re both fighting over it, tooth and nail. If you and the GM can’t agree on a halved effect you can’t choose that option.\n\nDefending yourself is certainly an option. It amounts to giving up on making attacks and just trying to keep yourself safe.\n\n*GM: Avon, you begin weaving the spell to push the necromancer’s ghost back through the gates but the zombies are bearing down on you.\n\nLux: Don’t worry, squishy Avon, I will save you. While Avon casts his spell, I swear to protect him—I slam my hammer on my shield and yell “If you want to stop him, you’ll have to come through me.” I’d like to defend Avon.\n\nGM: And with such gusto, too. Roll+Con.\n\nLux: I get an 11, three hold, right?\n\nAvon: Better get ready to use it, Lux. I got an 8 on my spellcasting roll—I choose to put myself in danger.\n\nGM: Of course you do. The zombies are drawn by the magical disturbance, lurching toward you on the attack. Suddenly, you’re swarmed by them, they’re everywhere! What do you do?\n\nAvon: Squeak helplessly?\n\nLux: I’m on it. I spend a point of my hold to redirect the attack to me—I shove Avon aside and let the full fury of my goodness spill out in waves, angering the undead. To be safe, I’m going to whip my hammer in an arc and deal my damage. I might as well use it all up and reduce the damage by half. My god protects us!\n\nGM: So, Hadrian, you’ve been defending Durga while she heals Willem, but now Willem is better. What do you do?\n\nDurga: I leap forward to drive back the troglodytes!\n\nHadrian: I want to tangle with this crocodilian.\n\nGM: Okay, Durga, the trogs come at you with their clubs.\n\nHadrian: No way, I still have hold left over, I want to spend it to redirect that attack to myself.\n\nGM: You two are spread out, now. How are you going to do that if you’re 20 yards away? You lost your hold when you attacked the croc, my friend.\n\nHadrian: Yeah, I guess I’m not “standing in defense” anymore. Forget it, you’re on your own, Durga!*",
+    "key": "defend",
+    "name": "Defend"
+  },
+  {
+    "description": "When you act despite an imminent threat or suffer a calamity, say how you deal with it and roll. If you do it...\n\n * by powering through, +Str \n * by getting out of the way or acting fast, +Dex\n * by enduring, +Con\n * with quick thinking, +Int\n * through mental fortitude, +Wis\n * sing charm and social grace, +Cha\n\nOn a 10+, you do what you set out to, the threat doesn’t come to bear. On a 7–9, you stumble, hesitate, or flinch: the GM will offer you a worse outcome, hard bargain, or ugly choice.",
+    "key": "defy_danger",
+    "name": "Defy Danger"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "You serve and worship some deity or power which grants you spells. Give your god a name (maybe Helferth, Sucellus, Zorica or Krugon the Bleak) and choose your deity’s domain:\n\n - Healing and Restoration\n - Bloody Conquest\n - Civilization\n - Knowledge and Hidden Things\n - The Downtrodden and Forgotten\n - What Lies Beneath\nChoose one precept of your religion:\n\n - Your religion preaches the sanctity of suffering, add Petition: Suffering\n - Your religion is cultish and insular, add Petition: Gaining Secrets\n - Your religion has important sacrificial rites, add Petition: Offering\n - Your religion believes in trial by combat, add Petition: Personal Victory",
+    "key": "deity",
+    "name": "Deity"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you use **Charming and Open** you may also ask “How are you vulnerable to me?” Your subject may not ask this question of you.",
+    "key": "devious",
+    "name": "Devious"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you heal someone else of damage, add your level to the amount of damage healed.",
+    "key": "devoted_healer",
+    "name": "Devoted Healer"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When using a precise or hand weapon, your backstab deals an extra +1d8 damage and all other attacks deal +1d4 damage.",
+    "key": "dirty_fighter",
+    "name": "Dirty Fighter",
+    "replaces": "cheap_shot"
+  },
+  {
+    "description": "When you **closely study a situation or person**, roll+Wis. On a 10+ ask the GM three questions from the list below. On a 7–9 ask only one. Take +1 forward when acting on the answers.\n\n * What happened here recently?\n * What is about to happen?\n * What should I be on the lookout for?\n * What here is useful or valuable to me?\n * Who’s really in control here?\n * What here is not what it appears to be?",
+    "key": "discern_realities",
+    "name": "Discern Realities"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you have time and materials you can create a disguise that will fool anyone into thinking you’re another creature of about the same size and shape. Your actions can give you away but your appearance won’t.",
+    "key": "disguise",
+    "name": "Disguise"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you wear no armor or shield you get 3 armor.",
+    "key": "divine_armor",
+    "name": "Divine Armor",
+    "replaces": "divine_protection"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "Take +1 to order hirelings. When you roll a 12+ the hireling transcends their moment of fear and doubt and carries out your order with particular effectiveness or efficiency.",
+    "key": "divine_authority",
+    "name": "Divine Authority",
+    "replaces": "voice_of_authority"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "Dedicate yourself to a deity (name a new one or choose one that’s already been established). You gain the commune and cast a spell cleric moves. When you select this move, treat yourself as a cleric of level 1 for using spells. Every time you gain a level thereafter, increase your effective cleric level by 1.",
+    "key": "divine_favor",
+    "name": "Divine Favor"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you petition your deity according to the precept of your religion, you are granted some useful knowledge or boon related to your deity’s domain. The GM will tell you what.",
+    "key": "divine_guidance",
+    "name": "Divine Guidance"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you Commune you get 1 hold and lose any hold you already had. Spend that hold when you or an ally takes damage to call on your deity, they intervene with an appropriate manifestation (a sudden gust of wind, a lucky slip, a burst of light) and negate the damage.",
+    "key": "divine_intervention",
+    "name": "Divine Intervention"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you Commune you gain 2 hold and lose any hold you already had. Spend that hold when you or an ally takes damage to call on your deity, who intervenes with an appropriate manifestation (a sudden gust of wind, a lucky slip, a burst of light) and negates the damage.",
+    "key": "divine_invincibility",
+    "name": "Divine Invincibility",
+    "replaces": "divine_intervention"
+  },
+  {
+    "classes": [
+      "cleric",
+      "paladin"
+    ],
+    "description": "You get +2 armor while on a quest.",
+    "key": "divine_protection",
+    "name": "Divine Protection",
+    "replaces": "holy_protection"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "You are able to study the essence of specific individuals to take their exact form, including men, elves, or the like. Suppressing your tell is possible, but if you do, take -1 ongoing until you return to your own form.",
+    "key": "doppelgängers_dance",
+    "name": "Doppelgänger’s Dance"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "The sap of the elder trees flows within you. In addition to any other attunements, the Great Forest is always considered your land.",
+    "key": "druid_elf",
+    "name": "Elf"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "You sing the healing songs of spring and brook. When you Make Camp, you and your allies heal +1d6.",
+    "key": "druid_halfling",
+    "name": "Halfling"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "As your people learned to bind animals to field and farm, so too are you bound to them. You may always take the shape of any domesticated animal, in addition to your normal options.",
+    "key": "druid_human",
+    "name": "Human"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you **Hack & Slash**, you take +2 armor forward.",
+    "key": "duelists_block",
+    "name": "Duelists's Block",
+    "replaces": "duelists_parry"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you Hack & Slash, you take +1 armor forward.",
+    "key": "duelists_parry",
+    "name": "Duelist's Parry"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you use Arcane Art, you choose two effects. You also get to choose one of those effects to double.",
+    "key": "eldritch_chord",
+    "name": "Eldritch Chord",
+    "replaces": "eldritch_tones"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "Your Arcane Art is strong, allowing you to choose two effects instead of one.",
+    "key": "eldritch_tones",
+    "name": "Eldritch Tome"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you call on the primal spirits of fire, water, earth or air to perform a task for you roll+Wis. On a 10+ choose two. On a 7–9 choose one. On a miss, some catastrophe occurs as a result of your calling.\n\n - The effect you desire comes to pass\n - You avoid paying nature’s price \n - You retain control",
+    "key": "elemental_mastery",
+    "name": "Elemental Mastery"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you Shapeshifter, roll 1d4 and add that total to your hold.",
+    "key": "embracing_no_form",
+    "name": "Embracing No Form"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you Cast a Spell, on a 10+ you have the option of choosing from the 7–9 list. If you do, you may choose one of these effects as well:\n\n - The spell’s effects are doubled\n - The spell’s targets are doubled",
+    "key": "empower",
+    "name": "Empower"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you Cast a Spell, on a 10+ you have the option of choosing from the 7-9 list. If you do, you may choose one of these as well:\nThe spell’s effects are maximized\n\nThe spell’s targets are doubled\n - The spell’s effects are maximized\n - The spell’s targets are doubled",
+    "key": "empowered_magic",
+    "name": "Empowered Magic"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you have time and safety with a magic item you may ask the GM what it does, the GM will answer you truthfully.",
+    "key": "enchanter",
+    "name": "Enchanter"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you have time and safety with a magic item in a place of power you can empower that item so that the next time you use it its effects are amplified, the GM will tell you exactly how.",
+    "key": "enchanters_soul",
+    "name": "Enchanter’s Soul",
+    "requires": "enchanter"
+  },
+  {
+    "description": "When you **make a move while carrying weight up to or equal to Load**, you’re fine. When you make a move while carrying weight equal to load+1 or load+2, you take -1. When you make a move while carrying weight greater than load+2, you have a choice: drop at least 1 weight and roll at -1, or automatically fail.",
+    "explanation": "A PC’s load stat is determined by their class and Str. Being able to haul more is a clear benefit when trying to carry treasure out of a dungeon or just making sure you can bring along what you need.\n\nThis move only applies to things a person could walk around with and still act. Carrying a boulder on your back is not encumbrance—you can’t really act or move much with it. It affects what moves you can make appropriately in the fiction.",
+    "key": "encumbrance",
+    "name": "Encumbrance"
+  },
+  {
+    "description": "When you **reach the end of a session**, choose one of your bonds that you feel is resolved (completely explored, no longer relevant, or otherwise). Ask the player of the character you have the bond with if they agree. If they do, mark XP and write a new bond with whomever you wish.\n\nOnce bonds have been updated look at your alignment. If you fulfilled that alignment at least once this session, mark XP. Then answer these three questions as a group:\n\n - Did we learn something new and important about the world?\n - Did we overcome a notable monster or enemy?\n - Did we loot a memorable treasure?\n\nFor each “yes” answer everyone marks XP.",
+    "key": "end_of_session",
+    "name": "End of Session"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "You can apply even complex poisons with a pinprick. When you apply a poison that’s not dangerous for you to use to your weapon it’s touch instead of applied.",
+    "key": "envenom",
+    "name": "Envenom"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you’re in too deep and need a way out, name your escape route and roll+DEX. On a 10+ you’re gone. On a 7–9 you can stay or go, but if you go it costs you: leave something behind or take something with you, the GM will tell you what.",
+    "key": "escape_route",
+    "name": "Escape Route"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you have time with a willing or helpless subject you can craft an ethereal tether with them. You perceive what they perceive and can Discern Realities about someone tethered to you or their surroundings no matter the distance. Someone willingly tethered to you can communicate with you over the tether as if you were in the room with them.",
+    "key": "ethereal_tether",
+    "name": "Ethereal Tether"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you Defy Danger on a 12+, you transcend the danger. You not only do what you set out to, but the GM will offer you a better outcome, true beauty, or a moment of grace.",
+    "key": "evasion",
+    "name": "Evasion"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you lead the charge into combat, those you lead take +1 forward and +2 armor forward.",
+    "key": "ever_onward",
+    "name": "Ever Onward",
+    "replaces": "charge"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you see divine magic as it happens, you can ask the GM which deity granted the spell and its effects. Take +1 when acting on the answers.",
+    "key": "evidence_of_faith",
+    "name": "Evidence of Faith",
+    "requires": "divine_favor"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you enter combat, roll+CHA. On a 10+, hold 2. On a 7-9, hold 1. Spend your hold to make eye contact with an NPC present, who freezes or flinches and can’t act until you break it off. On a 6-, your enemies immediately identify you as their biggest threat.",
+    "key": "evil_eye",
+    "name": "Evil Eye",
+    "requires": "seeing_red"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "Add a new spell from the spell list of any class to your spellbook.",
+    "key": "expanded_spellbook",
+    "name": "Expanded Spellbook"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you speak aloud your promise to defeat an enemy, you deal +2d4 damage against that enemy and -4 damage against anyone else. This effect lasts until the enemy is defeated. If you fail to defeat the enemy or give up the fight, you can admit your failure, but the effect continues until you find a way to redeem yourself.",
+    "key": "exterminatus",
+    "name": "Exterminatus"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you use Trap Expert you always get +1 hold, even on a 6-. On a 12+ you get 3 hold and the next time you come near a trap the GM will immediately tell you what it does, what triggers it, who set it, and how you can use it to your advantage.",
+    "key": "extremely_cautious",
+    "name": "Extremely Cautious",
+    "replaces": "cautious"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you look over an enemy’s weaponry, ask the GM how much damage they do.",
+    "key": "eye_for_weaponry",
+    "name": "Eye for Weaponry"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you mark an animal (with mud, dirt, or blood) you can see through that animal’s eyes as if they were your own, no matter what distance separates you. Only one animal at a time may be marked in this way.",
+    "key": "eyes_of_the_tiger",
+    "name": "Eyes of the Tiger"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you Spout Lore about a monster you use WIS instead of INT.",
+    "key": "familiar_prey",
+    "name": "Familiar Prey"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you share a drink with someone, you may Parley with them using CON instead of CHA.",
+    "key": "fighter_dwarf",
+    "name": "Dwarf"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "Choose one weapon—you can always treat weapons of that type as if they had the precise tag.",
+    "key": "fighter_elf",
+    "name": "Elf"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you Defy Danger and use your small size to your advantage, take +1.",
+    "key": "fighter_halfling",
+    "name": "Halfling"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "Once per battle you may reroll a single damage roll (yours or someone else’s).",
+    "key": "fighter_human",
+    "name": "Human"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "Cure Light Wounds is a rote for you, and therefore doesn’t count against your limit of granted spells.",
+    "key": "first_aid",
+    "name": "First Aid"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When someone tries to detect your alignment you can tell them any alignment you like.",
+    "key": "flexible_morals",
+    "name": "Flexible Morals"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you Undertake a Perilous Journey you can take two roles. You make a separate roll for each.",
+    "key": "follow_me",
+    "name": "Follow Me"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you Shapeshifter choose a stat: you take +1 ongoing to rolls using that stat while shifted. The GM will choose a stat, too: you take -1 ongoing to rolls using that stat while shifted.",
+    "key": "formcrafter",
+    "name": "Formcrafter"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "You may increase your armor by 1 or deal an additional +1d4 damage while in an animal form. Choose which when you Shapeshifter.",
+    "key": "formshaper",
+    "name": "Formshaper",
+    "requires": "formcrafter"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you Spout Lore about something no one else has any clue about, take +1.",
+    "key": "fount_of_knowledge",
+    "name": "Fount of Knowledge"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "Dedicate yourself to a deity (name a new one or choose one that’s already been established). You gain the Commune and Cast a Spell cleric moves. When you select this move, treat yourself as a cleric of level 1 for using spells. Every time you gain a level thereafter, increase your effective cleric level by 1.",
+    "key": "god_amidst_the_wastes",
+    "name": "God Amidst the Wastes"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you cast a spell, on a 10–11 you have the option of choosing from the 7–9 list. If you do, you may choose one of these effects as well. On a 12+ you get to choose one of these effects for free.\n\n - The spell’s effects are doubled\n - The spell’s targets are doubled",
+    "key": "greater_empower",
+    "name": "Greater Empower",
+    "replaces": "empower"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you Cast a Spell, on a 10-11 you have the option of choosing from the 7-9 list. If you do, you may choose one of these effects as well. On a 12+ you get to choose one of these effects for free:\nThe spell’s effects are doubled\n\nThe spell’s targets are doubled\n - The spell’s effects are doubled\n - The spell’s targets are doubled",
+    "key": "greater_empowered_magic",
+    "name": "Greater Empowered Magic",
+    "replaces": "empowered_magic"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "Cure Moderate Wounds is a rote for you, and therefore doesn’t count against your limit of granted spells.",
+    "key": "greater_first_aid",
+    "name": "Greater First Aid",
+    "requires": "first_aid"
+  },
+  {
+    "description": "When you **attack an enemy in melee**, roll+Str. On a 10+ you deal your damage to the enemy and avoid their attack. At your option, you may choose to do +1d6 damage but expose yourself to the enemy’s attack. On a 7–9, you deal your damage to the enemy and the enemy makes an attack against you.",
+    "key": "hack_and_slash",
+    "name": "Hack & Slash"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "Somewhere in your lineage lies mixed blood and it begins to show its presence. You gain the elf starting move if you took the human one at character creation or vice versa.",
+    "key": "half_elven",
+    "name": "Half-Elven"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you heal with Arcane Art, you heal +2d8 damage.",
+    "key": "healing_chorus",
+    "name": "Healing Chorus",
+    "replaces": "healing_song"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you heal with Arcane Art you heal +1d8 damage.",
+    "key": "healing_song",
+    "name": "Healing Song"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you consult the spirits that reside within your signature weapon, they will give you an insight relating to the current situation, and might ask you some questions in return, roll+CHA. On a 10+, the GM will give you good detail. On a 7-9, the GM will give you an impression.",
+    "key": "heirloom",
+    "name": "Heirloom"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you take time to make a plan to steal something, name the thing you want to steal and ask the GM these questions. When acting on the answers you and your allies take +1 forward.\n\n - Who will notice it’s missing?\n - What’s its most powerful defense?\n - Who will come after it?\n - Who else wants it?",
+    "key": "heist",
+    "name": "Heist"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you use strict deduction to analyze your surroundings, you can Discern Realities with Int instead of Wis. On a 12+ you get to ask the GM any three questions, not limited by the list.",
+    "key": "highly_logical",
+    "name": "Highly Logical",
+    "replaces": "logical"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "You get +1 armor while on a quest.",
+    "key": "holy_protection",
+    "name": "Holy Protection"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "While on a quest you deal +1d8 damage.",
+    "key": "holy_smite",
+    "name": "Holy Smite",
+    "replaces": "smite"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you heal an ally, you heal +1d8 damage.",
+    "key": "hospitaller",
+    "name": "Hospitaller"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you follow a trail of clues left behind by passing creatures, roll+WIS. On a 7+, you follow the creature’s trail until there’s a significant change in its direction or mode of travel. On a 10+, you also choose 1:\n\n - Gain a useful bit of information about your quarry, the GM will tell you what\n - Determine what caused the trail to end",
+    "key": "hunt_and_track",
+    "name": "Hunt and Track"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "Choose one move from the ranger class list.",
+    "key": "hunters_brother",
+    "name": "Hunter’s Brother"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you Spout Lore about a monster you use WIS instead of INT. On a 12+, in addition to the normal effects, you get to ask the GM any one question about the subject.",
+    "key": "hunters_prey",
+    "name": "Hunter’s Prey",
+    "replaces": "familiar_prey"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you give an NPC an order based on your divine authority, roll+Cha. On a 7+, they choose one:\n\n - Do what you say\n - Back away cautiously, then flee\n - Attack you\nOn a 10+, you also take +1 forward against them. On a miss, they do as they please and you take -1 forward against them.",
+    "key": "i_am_the_law",
+    "name": "I Am the Law"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you Defend you always get +1 hold, even on a 6-. When you get a 12+ to defend instead of getting hold the nearest attacking creature is stymied giving you a clear advantage, the GM will describe it.",
+    "key": "impervious_defender",
+    "name": "Impervious Defender",
+    "replaces": "staunch_defender"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "Choose one extra enhancement for your signature weapon.",
+    "key": "improved_weapon",
+    "name": "Improved Weapon"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you suffer a debility (even through Bloody Aegis) take +1 forward against whatever caused it.",
+    "key": "indomitable",
+    "name": "Indomitable"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you Parley using threats of impending violence as leverage, you may use STR instead of CHA.",
+    "key": "interrogator",
+    "name": "Interrogator"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you heal someone they take +2 forward to their damage.",
+    "key": "invigorate",
+    "name": "Invigorate"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "You gain +1 armor.",
+    "key": "iron_hide",
+    "name": "Iron Hide"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you unleash a crazed performance (a righteous lute solo or mighy brass blast, maybe) choose a target who can hear you and roll+CHA. \n\n * On a 10+ the target attacks their nearest ally in range. \n * On a 7-9 they attack their nearest ally, but you also draw their attention and ire.",
+    "key": "it_goes_to_eleven",
+    "name": "It Goes To Eleven"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When another player’s character comes to you for advice and you tell them what you think is best, they get +1 forward when following your advice and you mark experience if they do.",
+    "key": "know_it_all",
+    "name": "Know-It-All"
+  },
+  {
+    "description": "When you’re dying you catch a glimpse of what lies beyond the Black Gates of Death’s Kingdom (the GM will describe it). Then roll (just roll, +nothing—yeah, Death doesn’t care how tough or cool you are). On a 10+ you’ve cheated death— you’re in a bad spot but you’re still alive. On a 7–9 Death will offer you a bargain. Take it and stabilize or refuse and pass beyond the Black Gates into whatever fate awaits you. On a miss, your fate is sealed. You’re marked as Death’s own and you’ll cross the threshold soon. The GM will tell you when.",
+    "explanation": "The Last Breath is that moment standing between life and death. Time stands still as Death appears to claim the living for his own. Even those who do not pass beyond the Black Gates catch a glimpse of the other side and what might await them—friends and enemies past, rewards or punishment for acts in life or other, stranger vistas. All are changed in some way by this moment—even those who escape.\n\nThere are three outcomes to this move. On a 10+, the Character has cheated Death in some meaningful way. He’s escaped with something that, by rights, isn’t his anymore. Death is powerless to stop this, but he remembers this slight. On a 7–9, the GM should offer a real choice with significant consequence. Think about the behaviors of the character and the things you’ve learned about him in play. Death knows and sees all and tailors his bargains accordingly. This is a trade, remember. Offer something that will be a challenge to play out but will lead the game in fun new direction. On a miss, death is inevitable. The most obvious approach is to say “Death takes you across the threshold, into his bleak kingdom.” and move on. However, sometimes Death comes slowly. You might say “you have a week to live” or “you can feel the cold hand of Death on you…” and leave it at that, for now. The player may want to give in and accept death at this point—that’s okay. Let them create a new character as normal. The key thing to remember is that a brush with death, succeed or fail, is a significant moment that should always lead to change.\n\n\n*GM: Sparrow, as the knife blade disappears into your guts, the world fades away and you stand before the Black Gates of Death. Among the throngs of suffering souls, you spot Lord Hwyn, that sickly cur. It looks like all his ill deals caught up with him at last. He spots you across the bleak gulf and you feel the chill of his hunger in your very soul. Take your Last Breath.\n\nSparrow: Heavy. I got a 9.\n\nGM: Death appears to you, wisps of black cloth dancing around his shadowy form. A pale hand touches your face. You hear his voice in your mind. “Come to me so soon, pretty Sparrow? You follow a river of souls, sent here by your blade. I do so love you for them. I’ll return you to the world, but you must make me a promise. In shadow you dwell, so shadow you shall become. Shun the light of day forever or find a quick trip back to my company. What do you say, little thief?”\n\nSparrow: (gulp)*",
+    "key": "last_breath",
+    "name": "Last Breath"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you touch someone, skin to skin, and pray for their well-being , roll+CHA. On a 10+ you heal 1d8 damage or remove one disease. On a 7–9, they are healed, but the damage or disease is transferred to you.",
+    "key": "lay_on_hands",
+    "name": "Lay on Hands"
+  },
+  {
+    "description": "When you **have downtime (hours or days) and XP equal to (or greater than) your current level+7**, you can reflect on your experiences and hone your skills.\n\n - Subtract your current level+7 from your XP.\n - Increase your level by 1.\n - Choose a new advanced move from your class.\n - If you are the wizard, you also get to add a new spell to your spellbook.\n - Choose one of your stats and increase it by 1 (this may change your modifier). Changing your Constitution increases your maximum and current HP. Ability scores can’t go higher than 18.",
+    "key": "level_up",
+    "name": "Level"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you use strict deduction to analyze your surroundings, you can Discern Realities with INT instead of WIS.",
+    "key": "logical",
+    "name": "Logical"
+  },
+  {
+    "description": "When you **settle in to rest** consume a ration. If you’re somewhere dangerous decide the watch order as well. If you have enough XP you may level up. When you wake from at least a few uninterrupted hours of sleep heal damage equal to half your max HP.",
+    "explanation": "You usually make camp so that you can do other things, like prepare spells or commune with your god. Or, you know, sleep soundly at night. Whenever you stop to catch your breath for more than an hour or so, you’ve probably made camp.\n\nStaying a night in an inn or house is making camp, too. Regain your hit points as usual, but only mark off a ration if you’re eating from the food you carry, not paying for a meal or receiving hospitality.",
+    "key": "make_camp",
+    "name": "Make Camp"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you allow your animal companion to take a blow that was meant for you, the damage is negated and your animal companion’s ferocity becomes 0. If its ferocity is already 0 you can’t use this ability. When you have a few hours of rest with your animal companion its ferocity returns to normal.",
+    "key": "mans_best_friend",
+    "name": "Man’s Best Friend"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you take damage and embrace the pain, you may take +1d4 damage (ignoring armor). If you do, take +1 forward to cast a spell and add your level to any damage done or healed by the spell.",
+    "key": "martyr",
+    "name": "Martyr",
+    "replaces": "penitent"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "Choose one spell in addition to the one you picked for prodigy. You prepare that spell as if it were one level lower.",
+    "key": "master",
+    "name": "Master",
+    "requires": "prodigy"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you deal damage, deal +1d4 damage.",
+    "key": "merciless",
+    "name": "Merciless"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you shout with great force or play a shattering note choose a target and roll+CON. \n\n * On a 10+ the target takes 1d10 damage and is deafened for a few minutes. \n * On a 7-9 you still damage your target, but it’s out of control: the GM will choose an additional target nearby.",
+    "key": "metal_hurlant",
+    "name": "Metal Hurlant"
+  },
+  {
+    "classes": [
+      "bard",
+      "cleric",
+      "fighter"
+    ],
+    "description": "Get one move from another class. Treat your level as one lower for choosing the move.",
+    "key": "multiclass_dabbler",
+    "name": "Multiclass Dabbler"
+  },
+  {
+    "classes": [
+      "bard",
+      "fighter"
+    ],
+    "description": "Get one move from another class. Treat your level as one lower for choosing the move.",
+    "key": "multiclass_initiate",
+    "name": "Multiclass Initiate",
+    "requires": "multiclass_dabbler"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "Get a move from another class. Treat your level as one lower for choosing the move.",
+    "key": "multiclass_master",
+    "name": "Multiclass Master"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you use magic to control a person’s actions they have no memory of what you had them do and bear you no ill will.",
+    "key": "mystical_puppet_strings",
+    "name": "Mystical Puppet Strings"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you Hunt and Track, on a hit you may also ask one question about the creature you are tracking from the Discern Realities list for free.",
+    "key": "observant",
+    "name": "Observant"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you sacrifice something of value to your deity and pray for guidance, your deity tells you what it would have you do. If you do it, mark experience.",
+    "key": "orison_for_guidance",
+    "name": "Orison for Guidance"
+  },
+  {
+    "description": "When you return to a civilized place in which you’ve caused trouble before, roll+Cha. ✴On a 10+, word has spread of your deeds and everyone recognizes you. ✴On a 7–9, as above, and the GM chooses a complication:\n\n - The local constabulary has a warrant out for your arrest.\n - Someone has put a price on your head.\n - Someone important to you has been put in a bad spot as a result of your actions",
+    "explanation": "This move is only for places where you’ve caused trouble, not every patch of civilization you enter. Being publicly caught up in someone else’s trouble still triggers this move.\n\nCivilization generally means the villages, towns and cities of humans, elves, dwarves, and halflings but it can also apply to any relatively  lawful establishment of monstrous species, such as orcs or goblins. If the PCs have stayed in a place as part of the community, it counts as civilization.",
+    "key": "outstanding_warrants",
+    "name": "Outstanding Warrants"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you pray for guidance, even for a moment, and ask, “What here is evil?” the GM will tell you, honestly.",
+    "key": "paladin_human",
+    "name": "Human"
+  },
+  {
+    "description": "When you **have leverage on a GM character and manipulate them**, roll+Cha. Leverage is something they need or want. On a hit they ask you for something and do it if you make them a promise first. On a 7–9, they need some concrete assurance of your promise, right now.",
+    "key": "parley",
+    "name": "Parley"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you take damage and embrace the pain, you may take +1d4 damage (ignoring armor). If you do, take +1 forward to cast a spell.",
+    "key": "penitent",
+    "name": "Penitent"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you heal an ally, you heal +2d8 damage.",
+    "key": "perfect_hospitaller",
+    "name": "Perfect Hospitaller",
+    "replaces": "hospitaller"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you Quest you choose three boons instead of two.",
+    "key": "perfect_knight",
+    "name": "Perfect Knight"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "After you’ve used a poison once it’s no longer dangerous for you to use.",
+    "key": "poison_master",
+    "name": "Poison Master"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "You’ve mastered the care and use of a poison. Choose a poison from the list below; that poison is no longer dangerous for you to use. You also start with three uses of the poison you choose. Whenever you have time to gather materials and a safe place to brew you can make three uses of the poison you choose for free. Note that some poisons are applied, meaning you have to carefully apply it to the target or something they eat or drink. Touch poisons just need to touch the target, they can even be used on the blade of a weapon.\n\n - Oil of Tagit (applied): The target falls into a light sleep\n - Bloodweed (touch): The target deals -1d4 damage ongoing until cured\n - Goldenroot (applied): The target treats the next creature they see as a trusted ally, until proved otherwise\n - Serpent’s Tears (touch): Anyone dealing damage to the target rolls twice and takes the better result.",
+    "key": "poisoner",
+    "name": "Poisoner"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you spend uninterrupted time (an hour or so) in quiet contemplation of your spellbook, you:\nLose any spells you already have prepared\n\nPrepare new spells of your choice from your spellbook whose total levels don’t exceed your own level+1.\n\nPrepare your cantrips which never count against your limit.\n - Lose any spells you already have prepared\n - Prepare new spells of your choice from your spellbook whose total levels don’t exceed your own level+1.\n - Prepare your cantrips which never count against your limit.",
+    "key": "prepare_spells",
+    "name": "Prepare Spells"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "Choose a spell. You prepare that spell as if it were one level lower.",
+    "key": "prodigy",
+    "name": "Prodigy"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When an ally within sight of you is affected by an arcane spell, you can counter it as if it affected you. If the spell affects multiple allies you must counter for each ally separately.",
+    "key": "protective_counter",
+    "name": "Protective Counter",
+    "requires": "counterspell"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "You ignore the -1 penalty from two spells you maintain.",
+    "key": "providence",
+    "name": "Providence",
+    "replaces": "serenity"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you dedicate yourself to a mission through prayer and ritual cleansing, state what you set out to do:\n\n - Slay __________, a great blight on the land\n - Defend __________ from the iniquities that beset them\n - Discover the truth of __________\nThen choose up to two boons:\n\n - An unwavering sense of direction to __________.\n - Invulnerability to __________ (e.g., edged weapons, fire, enchantment, etc.)\n - A mark of divine authority\n - Senses that pierce lies\n - A voice that transcends language\n - A freedom from hunger, thirst, and sleep\nThe GM will then tell you what vow or vows is required of you to maintain your blessing:\n\n - Honor (forbidden: cowardly tactics and tricks)\n - Temperance (forbidden: gluttony in food, drink, and pleasure of the flesh)\n - Piety (required: observance of daily holy services)\n - Valor (forbidden: suffering an evil creature to live)\n - Truth (forbidden: lies)\n - Hospitality (required: comfort to those in need, no matter who they are)",
+    "key": "quest",
+    "name": "Quest"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you see the effects of an arcane spell, ask the GM the name of the spell and its effects. You take +1 when acting on the answers.",
+    "key": "quick_study",
+    "name": "Quick Study"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you Undertake a Perilous Journey through wilderness whatever job you take you succeed as if you rolled a 10+.",
+    "key": "ranger_elf",
+    "name": "Elf"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you Make Camp in a dungeon or city, you don’t need to consume a ration.",
+    "key": "ranger_human",
+    "name": "Human"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you take time after a conflict to dedicate your victory to your deity and deal with the dead, take +1 forward.",
+    "key": "reaper",
+    "name": "Reaper"
+  },
+  {
+    "description": "When you **do nothing but rest in comfort and safety** after a day of rest you recover all your HP. After three days of rest you remove one debility of your choice. If you’re under the care of a healer (magical or otherwise) you heal a debility for every two days of rest instead.",
+    "key": "recover",
+    "name": "Recover"
+  },
+  {
+    "description": "When you put out word that you’re looking to hire help, roll:\n\n - +1 if you make it known that your pay is generous\n - +1 if you make it known what you’re setting out to do\n - +1 if you make it known that they’ll get a share of whatever you find\n - +1 if you have a useful reputation around these parts\n\n✴On a 10+, you’ve got your pick of a number of skilled applicants, your choice who you hire, no penalty for not taking them along. ✴On a 7–9, you’ll have to settle for someone close to what you want or turn them away. ✴On a miss someone influential and ill-suited declares they’d like to come along (a foolhardy youth, a loose-cannon, or a veiled enemy, for example), bring them and take the consequences or turn them away. If you turn away applicants you take -1 forward to recruit.",
+    "key": "recruit",
+    "name": "Recruit"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you are in an appropriate animal form (something dangerous) increase your damage to d8.",
+    "key": "red_of_tooth_and_claw",
+    "name": "Red of Tooth and Claw"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you **first meet someone who’s heard songs about you**, roll+CHA.\n\n * On a 10+, tell the GM two things they’ve heard about you.\n * On a 7-9, tell the GM one thing they’ve heard, and the GM tells you one thing.",
+    "key": "reputation",
+    "name": "Reputation"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you draw on a place of power to create a magical effect, tell the GM what you’re trying to achieve. Ritual effects are always possible, but the GM will give you one to four of the following conditions:\nIt’s going to take days/weeks/months\n\nFirst you must __________\n\nYou’ll need help from __________\n\nIt will require a lot of money\n\nThe best you can do is a lesser version, unreliable and limited\n\nYou and your allies will risk danger from __________\n\nYou’ll have to disenchant __________ to do it\n - It’s going to take days/weeks/months\n - First you must __________\n - You’ll need help from __________\n - It will require a lot of money\n - The best you can do is a lesser version, unreliable and limited\n - You and your allies will risk danger from __________\n - You’ll have to disenchant __________ to do it",
+    "key": "ritual",
+    "name": "Ritual"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you Hack & Slash an enemy, your next attack against that same foe deals +1d4 damage.",
+    "key": "scent_of_blood",
+    "name": "Scent of Blood"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you Discern Realities during combat, you take +1.",
+    "key": "seeing_red",
+    "name": "Seeing Red"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you have time, arcane materials, and a safe space, you can create your own place of power. Describe to the GM what kind of power it is and how you’re binding it to this place, the GM will tell you one kind of creature that will have an interest in your workings.",
+    "key": "self_powered",
+    "name": "Self-Powered"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you Cast a Spell you ignore the first -1 penalty from ongoing spells.",
+    "key": "serenity",
+    "name": "Serenity"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "You have +1 armor. When you’re outnumbered, you have +2 armor instead.",
+    "key": "serious_underdog",
+    "name": "Serious Underdog",
+    "replaces": "underdog"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you Hack & Slash, choose an ally. Their next attack against your target does +1d4 damage.",
+    "key": "setup_strike",
+    "name": "Setup Strike"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you call upon the spirits to change your shape, roll+Wis. On a 10+ hold 3. On a 7–9 hold 2. On a miss hold 1 in addition to whatever the GM says.\nYou may take on the physical form of any species whose essence you have studied or who lives in your land: you and your possessions meld into a perfect copy of the species’ form. You have any innate abilities and weaknesses of the form: claws, wings, gills, breathing water instead of air. You still use your normal stats but some moves may be harder to trigger—a housecat will find it hard to do battle with an ogre. The GM will also tell you one or more moves associated with your new form. Spend 1 hold to make that move. Once you’re out of hold, you return to your natural form. At any time, you may spend all your hold and revert to your natural form.",
+    "key": "shapeshifter",
+    "name": "Shapeshifter"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you take damage while shapeshifted you may choose to revert to your natural form to negate the damage.",
+    "key": "shed",
+    "name": "Shed"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "You’re never caught by surprise. When an enemy would get the drop on you, you get to act first instead.",
+    "key": "shoot_first",
+    "name": "Shoot First"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "This is your weapon. There are many like it, but this one is yours. Your weapon is your best friend. It is your life. You master it as you master your life. Your weapon, without you, is useless. Without your weapon, you are useless. You must wield your weapon true.\nChoose a base description, all are 2 weight:\n\n - Sword\n - Axe\n - Hammer\n - Spear\n - Flail\n - Fists\nChoose the range that best fits your weapon:\n\n - Hand\n - Close\n - Reach\nChoose two enhancements:\n\n - Hooks and spikes. +1 damage, but +1 weight.\n - Sharp. +2 piercing.\n - Perfectly weighted. Add precise.\n - Serrated edges. +1 damage.\n - Glows in the presence of one type of creature, your choice.\n - Huge. Add messy and forceful.\n - Versatile. Choose an additional range.\n - Well-crafted. -1 weight.\nChoose a look:\n\n - Ancient\n - Unblemished\n - Ornate\n - Blood-stained\n - Sinister",
+    "key": "signature_weapon",
+    "name": "Signature Weapon"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you know your target’s weakest point your arrows have 2 piercing.",
+    "key": "smaugs_belly",
+    "name": "Smaug’s Belly"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "While on a quest you deal +1d4 damage.",
+    "key": "smite",
+    "name": "Smite"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "Choose a move from another class. So long as you are working with your animal companion you have access to that move.",
+    "key": "special_trick",
+    "name": "Special Trick"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "When you deal damage to a creature you can shunt a spell’s energy into them—end one of your ongoing spells and add the spell’s level to the damage dealt.",
+    "key": "spell_augmentation",
+    "name": "Spell Augmentation"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "You may end any ongoing spell immediately and use the energy of its dissipation to deflect an oncoming attack. The spell ends and you subtract its level from the damage done to you.",
+    "key": "spell_defense",
+    "name": "Spell Defense"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "You have mastered several spells and inscribed them in your spellbook. You start out with three first level spells in your spellbook as well as the cantrips. Whenever you gain a level, you add a new spell of your level or lower to your spellbook. You spellbook is 1 weight.",
+    "key": "spellbook",
+    "name": "Spellbook"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "The grunts, barks, chirps, and calls of the creatures of the wild are as language to you. You can understand any animal native to your land or akin to one whose essence you have studied.",
+    "key": "spirit_tongue",
+    "name": "Spirit Tongue"
+  },
+  {
+    "description": "When you **consult your accumulated knowledge about something**, roll+Int. On a 10+ the GM will tell you something interesting and useful about the subject relevant to your situation. On a 7–9 the GM will only tell you something interesting—it’s on you to make it useful. The GM might ask you “How do you know this?” Tell them the truth, now.",
+    "key": "spout_lore",
+    "name": "Spout Lore"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "Choose one move from the ranger class list.",
+    "key": "stalkers_sister",
+    "name": "Stalker’s Sister"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you Defend you always get +1 hold, even on a 6-.",
+    "key": "staunch_defender",
+    "name": "Staunch Defender"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "You gain +2 armor.",
+    "key": "steel_hide",
+    "name": "Steel Hide",
+    "replaces": "iron_hide"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you Undertake a Perilous Journey you can take two roles. Roll twice and use the better result for both roles.",
+    "key": "strider",
+    "name": "Strider",
+    "replaces": "follow_me"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "You can throw any melee weapon, using it to Volley. A thrown melee weapon is gone; you can never choose to reduce ammo on a 7–9.",
+    "key": "strong_arm_true_aim",
+    "name": "Strong Arm, True Aim"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you spend time in contemplation of an animal spirit, you may add its species to those you can assume using shapeshifting.",
+    "key": "studied_essence",
+    "name": "Studied Essence"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you Hack & Slash on a 12+ you deal your damage, avoid their attack, and impress, dismay, or frighten your enemy.",
+    "key": "superior_warrior",
+    "name": "Superior Warrior"
+  },
+  {
+    "description": "When you go to **buy something with gold on hand**, if it’s something readily available in the settlement you’re in, you can buy it at market price. If it’s something special, beyond what’s usually available here, or non-mundane, roll+Cha. ✴On a 10+, you find what you’re looking for at a fair price. ✴On a 7–9, you’ll have to pay more or settle for something that’s not exactly what you wanted, but close. The GM will tell you what your options are.",
+    "key": "supply",
+    "name": "Supply"
+  },
+  {
+    "description": "When you’re on watch and something approaches the camp roll+Wis. ✴On a 10+, you’re able to wake the camp and prepare a response, everyone in the camp takes +1 forward. ✴On a 7–9, you react just a moment too late; your companions in camp are awake but haven’t had time to prepare. They have weapons and armor but little else. ✴On a miss, whatever lurks outside the campfire’s light has the drop on you.",
+    "key": "take_watch",
+    "name": "Take Watch"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "When you Hack & Slash, choose an ally. Their next attack against your target does +1d4 damage and they take +1 forward against them.",
+    "key": "tandem_strike",
+    "name": "Tandem Strike",
+    "replaces": "setup_strike"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you Hack & Slash an enemy, your next attack against that same foe deals +1d8 damage.",
+    "key": "taste_of_blood",
+    "name": "Taste of Blood",
+    "replaces": "scent_of_blood"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you take this move, the next opportunity that you have safety and time to spend in an appropriate location, you may attune yourself to a new land. This effect occurs only once and the GM will tell you how long it will take and what cost you must pay. From then on, you are considered to be born of the soil in both lands.",
+    "key": "the_druid_sleep",
+    "name": "The Druid Sleep"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When someone takes their last breath in your presence, they take +1 to the roll.",
+    "key": "the_scales_of_life_and_death",
+    "name": "The Scales of Life and Death"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you attack with a ranged weapon, deal +2 damage.",
+    "key": "thief_halfling",
+    "name": "Halfling"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "You are a professional. When you Spout Lore or Discern Realities about criminal activities, take +1.",
+    "key": "thief_human",
+    "name": "Human"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "You see the spirits in the sand, the sea and the stone. You may now apply your spirit tongue, shapeshifting and studied essence to inanimate natural objects (plants and rocks) or creatures made thereof, as well as animals. Thing-talker forms can be exact copies or can be mobile vaguely humanoid-shaped entities.",
+    "key": "thing_talker",
+    "name": "Thing-Talker"
+  },
+  {
+    "classes": [
+      "fighter"
+    ],
+    "description": "When you go into battle, roll+WIS. On a 10+, name someone who will live and someone who will die. On a 7-9, name someone who will live or someone who will die. Name NPCs, not player characters. The GM will make your vision come true, if it’s even remotely possible. On a 6- you see your own death and consequently take -1 ongoing throughout the battle.",
+    "key": "through_deaths_eyes",
+    "name": "Through Death’s Eyes"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you spend a moment to survey a dangerous area, roll+DEX. On a 10+, hold 3. On a 7–9, hold 1. Spend your hold as you walk through the area to ask these questions:\n\n - Is there a trap here and if so, what activates it?\n - What does the trap do when activated?\n - What else is hidden here?",
+    "key": "trap_expert",
+    "name": "Trap Expert"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you pick locks or pockets or disable traps, roll+DEX. On a 10+, you do it, no problem. On a 7–9, you still do it, but the GM will offer you two options between suspicion, danger, or cost.",
+    "key": "tricks_of_the_trade",
+    "name": "Tricks of the Trade"
+  },
+  {
+    "classes": [
+      "cleric"
+    ],
+    "description": "When you hold your holy symbol aloft and call on your deity for protection, roll+Wis. On a 7+, so long as you continue to pray and brandish your holy symbol, no undead may come within reach of you. On a 10+, you also momentarily daze intelligent undead and cause mindless undead to flee. Aggression breaks the effects and they are able to act as normal. Intelligent undead may still find ways to harry you from afar. They’re clever like that.",
+    "key": "turn_undead",
+    "name": "Turn Undead"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you’re outnumbered, you have +1 armor.",
+    "key": "underdog",
+    "name": "Underdog"
+  },
+  {
+    "description": "When you travel through hostile territory, choose one member of the party to act as trailblazer, one to scout ahead, and one to be quartermaster. Each character with a job to do rolls+Wis. ✴On a 10+:\n\n - the quartermaster reduces the number of rations required by one\n - the trailblazer reduces the amount of time it takes to reach your destination (the GM will say by how much)\n - the scout will spot any trouble quick enough to let you get the drop on it\n\n✴On a 7–9, each role performs their job as expected: the normal number of rations are consumed, the journey takes about as long as expected, no one gets the drop on you but you don’t get the drop on them either.",
+    "explanation": "You can’t assign more than one job to a character. If you don’t have enough party members, or choose not to assign a job, treat that job as if it had been assigned and the responsible player had rolled a 6.\n\nDistances in Dungeon World are measured in rations. A ration is the amount of supplies used up in a day. Journeys take more rations when they are long or when travel is slow.\n\nA perilous journey is the whole way between two locations. You don’t roll for one day’s journey and then make camp only to roll for the next day’s journey, too. Make one roll for the entire trip.\n\nThis move only applies when you know where you’re going. Setting off to explore is not a perilous journey. It’s wandering around looking for cool things to discover. Use up rations as you camp and the GM will give you details about the world as you discover them.",
+    "key": "undertake_a_perilous_journey",
+    "name": "Undertake a Perilous Journey"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you **meet someone you’ve met before** (your call) after some time apart you take +1 forward against them.",
+    "key": "unforgettable_face",
+    "name": "Unforgettable Face"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "Your animal companion is a monster, not an animal. Describe it. Give it +2 ferocity and +1 instinct, plus a new training.",
+    "key": "unnatural_ally",
+    "name": "Unnatural Ally"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you **grant bonus damage with Arcane Art**, you grant an extra +2d4 damage.",
+    "key": "vicious_blast",
+    "name": "Vicious Blast",
+    "replaces": "vicious_cacophony"
+  },
+  {
+    "classes": [
+      "bard"
+    ],
+    "description": "When you **grant bonus damage with Arcane Art**, you grant an extra +1d4 damage.",
+    "key": "vicious_cacophony",
+    "name": "Vicious Cacophony"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you strike an enemy with two weapons at once, add an extra 1d8 damage for your off-hand strike.",
+    "key": "vipers_fangs",
+    "name": "Viper’s Fangs",
+    "replaces": "vipers_strike"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "When you strike an enemy with two weapons at once, add an extra 1d4 damage for your off-hand strike.",
+    "key": "vipers_strike",
+    "name": "Viper’s Strike"
+  },
+  {
+    "classes": [
+      "paladin"
+    ],
+    "description": "Take +1 to order hirelings.",
+    "key": "voice_of_authority",
+    "name": "Voice of Authority"
+  },
+  {
+    "description": "When you take aim and **shoot at an enemy at range**, roll+Dex. On a 10+ you have a clear shot—deal your damage. On a 7–9, choose one (whichever you choose you deal your damage):\n\n * You have to move to get the shot placing you in danger of the GM’s choice\n * You have to take what you can get: -1d6 damage\n * You have to take several shots, reducing your ammo by one.",
+    "key": "volley",
+    "name": "Volley"
+  },
+  {
+    "classes": [
+      "thief"
+    ],
+    "description": "When you make a show of flashing around your most valuable possession, choose someone present. They will do anything they can to obtain your item or one like it.",
+    "key": "wealth_and_taste",
+    "name": "Wealth and Taste"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "When you are under open skies when the sun rises the GM will ask you what the weather will be that day. Tell them whatever you like, it comes to pass.",
+    "key": "weather_weaver",
+    "name": "Weather Weaver"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "Choose another training for your animal companion.",
+    "key": "well_trained",
+    "name": "Well-Trained"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "You can speak with and understand animals.",
+    "key": "wild_empathy",
+    "name": "Wild Empathy"
+  },
+  {
+    "classes": [
+      "ranger"
+    ],
+    "description": "You can speak with and understand any non-magical, non-planar creature.",
+    "key": "wild_speech",
+    "name": "Wild Speech",
+    "replaces": "wild_empathy"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "Magic is as natural as breath to you. Detect Magic is a cantrip for you.",
+    "name": "Elf"
+  },
+  {
+    "classes": [
+      "wizard"
+    ],
+    "description": "Choose one Cleric spell. You can cast it as if it was a Wizard spell.",
+    "name": "Human"
+  },
+  {
+    "classes": [
+      "druid"
+    ],
+    "description": "You see the patterns that make up the fabric of the world. You may now apply your spirit tongue, shapeshifter and studied essence moves to pure elements—fire, water, air and earth.",
+    "key": "world_talker",
+    "name": "World-Talker",
+    "requires": "thing_talker"
+  }
+]
