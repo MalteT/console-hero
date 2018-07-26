@@ -11,21 +11,12 @@ extern crate unicode_width;
 
 mod data;
 
-use rustyline::completion::Completer;
+use data::Data;
 use rustyline::error::ReadlineError;
-use std::fs::File;
 use std::io;
 
-use data::Monsters;
-use data::Moves;
-
 fn main() -> io::Result<()> {
-    let f = File::open("data/moves.json")?;
-    let moves = Moves::parse(f)?;
-    let f = File::open("data/monsters.json")?;
-    let monsters = Monsters::parse(f)?;
-
-    let data = Data::new(monsters, moves);
+    let data = Data::from("data/moves.json", "data/monsters.json")?;
 
     let mut rl = rustyline::Editor::new()
         .history_ignore_dups(true)
@@ -67,27 +58,4 @@ fn main() -> io::Result<()> {
     }
 
     Ok(())
-}
-
-struct Data {
-    monsters: Monsters,
-    moves: Moves,
-}
-
-impl Data {
-    fn new(monsters: Monsters, moves: Moves) -> Self {
-        Data { monsters, moves }
-    }
-}
-
-impl Completer for Data {
-    fn complete(&self, line: &str, pos: usize) -> rustyline::Result<(usize, Vec<String>)> {
-        if line.starts_with("move ") {
-            self.moves.complete(line, pos)
-        } else if line.starts_with("monster ") {
-            self.monsters.complete(line, pos)
-        } else {
-            Ok((pos, vec![]))
-        }
-    }
 }
