@@ -11,32 +11,76 @@ use std::io::Read;
 use std::io::{Error, ErrorKind::InvalidData};
 use std::ops::{Deref, DerefMut};
 
+/// Wrapper around a `Vec<Monster>`.
+///
+/// For implementing some functions and traits.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Monsters {
     data: Vec<Monster>,
 }
 
+/// Monster data.
+///
+/// ```text
+/// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+/// ┃ Apocalypse Dragon                         26 HP   5 Armor  ┃
+/// ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+/// ┃ Bite (b[2d12]+9)        Reach, Forceful, Messy, 4 piercing ┃
+/// ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+/// ┃                            Solitary, Huge, Magical, Divine ┃
+/// ┠────────────────────────────────────────────────────────────┨
+/// ┃ The end of all things shall be a burning—of tree and earth ┃
+/// ┃ and of the air itself. It shall come upon the plains and   ┃
+/// ┃ mountains not from beyond this world but from within it.   ┃
+/// ┃ Birthed from the womb of deepest earth shall come the      ┃
+/// ┃ Dragon that Will End the World. In its passing all will    ┃
+/// ┃ become ash and bile and the Dungeon World a dying thing    ┃
+/// ┃ will drift through planar space devoid of life. They say   ┃
+/// ┃ to worship the Apocalypse Dragon is to invite madness.     ┃
+/// ┃ They say to love it is to know oblivion. The awakening is  ┃
+/// ┃ coming.                                                    ┃
+/// ┠────────────────────────────────────────────────────────────┨
+/// ┃ Instinct: To end the world!                                ┃
+/// ┠────────────────────────────────────────────────────────────┨
+/// ┃ • Set a disaster in motion.                                ┃
+/// ┃ • Breathe forth the elements.                              ┃
+/// ┃ • Act with perfect foresight.                              ┃
+/// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+/// ```
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Monster {
+    /// Unique identifier for the monster.
     key: String,
+    /// Name of the monster.
     #[serde(default)]
     name: String,
+    /// List of tags, this monster has.
     #[serde(default)]
     tags: Vec<String>,
+    /// Amount of armor this monster has.
     #[serde(default)]
     armor: u8,
+    /// Amount of HP this monster has.
     #[serde(default)]
     hp: u8,
+    /// Basic instinct of this monster.
     #[serde(default)]
     instinct: String,
+    /// List of moves which are common to this monster.
     #[serde(default)]
     moves: Vec<String>,
+    /// A description about this monster.
     #[serde(default)]
     description: String,
+    /// List of attacks this monster can make.
     #[serde(default)]
     attacks: Vec<Attack>,
 }
 
+/// Attack struct containing:
+/// - name
+/// - damage
+/// - tags
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Attack {
     name: String,

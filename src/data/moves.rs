@@ -10,18 +10,39 @@ use std::io::Read;
 use std::io::{Error, ErrorKind::InvalidData};
 use std::ops::{Deref, DerefMut};
 
+/// Wrapper around a `Vec<Moves>`.
+///
+/// For implementing some functions and traits.
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Moves {
     data: Vec<Move>,
 }
 
+/// Data about a move a character can execute.
+///
+/// ```text
+/// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+/// ┃ Dirty Fighter                          ┃
+/// ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+/// ┃ Class: thief                           ┃
+/// ┠────────────────────────────────────────┨
+/// ┃ When using a precise or hand weapon,   ┃
+/// ┃ your backstab deals an extra +1d8      ┃
+/// ┃ damage and all other attacks deal +1d4 ┃
+/// ┃ damage.                                ┃
+/// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+/// ```
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Move {
+    /// Name of the move.
     name: String,
-    // TODO: Fix the data, to remove the default tag!
+    /// Unique identifier of the move.
+    /// TODO: Fix the data, to remove the default tag!
     #[serde(default)]
     key: String,
+    /// Simple description containing dice rolls.
     description: String,
+    /// List of classes who might have this move.
     #[serde(default = "all_string")]
     classes: Vec<String>,
 }
@@ -121,6 +142,7 @@ impl fmt::Display for Move {
     }
 }
 
+/// Simple helper function for Serde to return the String `all`.
 fn all_string() -> Vec<String> {
     vec![String::from("all")]
 }
