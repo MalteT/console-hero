@@ -8,17 +8,7 @@ Build and execute with `cargo run --release`.
 
 ## Example
 
-```
->> move A Little Help From My Friends
+![Usage example](screenshot/monster_and_move.png "Screenshot")
 
- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
- ┃ A Little Help From My Friends           ┃
- ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
- ┃ Class: bard                             ┃
- ┠─────────────────────────────────────────┨
- ┃ When you successfully aid someone you   ┃
- ┃ take +1 forward as well.                ┃
- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-```
 
 Thanks to the creators of Dungeon World!
