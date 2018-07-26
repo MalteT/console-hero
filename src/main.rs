@@ -16,7 +16,7 @@ use rustyline::error::ReadlineError;
 use std::io;
 
 fn main() -> io::Result<()> {
-    let data = Data::from("data/moves.json", "data/monsters.json")?;
+    let data = Data::from("data/moves.json", "data/monsters.json", "data/tags.json")?;
 
     let mut rl = rustyline::Editor::new()
         .history_ignore_dups(true)
@@ -50,6 +50,14 @@ fn main() -> io::Result<()> {
                 let mv = data.moves.find(mv);
                 match mv {
                     Some(mv) => println!("{}", mv),
+                    None => println!("No match"),
+                }
+            }
+            m if m.starts_with("tag ") => {
+                let tag = m.trim_left_matches("tag ");
+                let tag = data.tags.find(tag);
+                match tag {
+                    Some(tag) => println!("{}", tag),
                     None => println!("No match"),
                 }
             }
