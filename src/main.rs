@@ -11,8 +11,8 @@ extern crate unicode_width;
 
 mod data;
 
-use rustyline::error::ReadlineError;
 use rustyline::completion::Completer;
+use rustyline::error::ReadlineError;
 use std::fs::File;
 use std::io;
 

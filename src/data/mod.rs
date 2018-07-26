@@ -30,7 +30,7 @@ fn wrap(text: &str, width: usize, left: &str, right: &str) -> String {
 fn expand(text: &str, width: usize) -> String {
     let w = UW::width(text);
     if w > width {
-        text.to_string()
+        text.replacen("{}", "", 1).to_string()
     } else {
         let parts: Vec<&str> = text.split("{}").collect();
         let left = parts[0];
@@ -91,4 +91,39 @@ where
         })
         .trim_right_matches("\n")
         .to_string()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn basic() {
+        assert_eq!(
+            wrap("Hello World", 3, ">", "<"),
+            ">Hel<\n>lo <\n>Wor<\n>ld <".to_string()
+        );
+        assert_eq!(capitalize("hello"), "Hello".to_string());
+        assert_eq!(capitalize("ßello"), "SSello".to_string());
+        assert_eq!(bold_line(0), String::new());
+        assert_eq!(
+            bold_line(10),
+            String::from("━━━━━━━━━━")
+        );
+        assert_eq!(
+            expand("Hello{}World", 30),
+            String::from("Hello                    World")
+        );
+        assert_eq!(expand("Hello{}World", 10), String::from("HelloWorld"));
+        let array = vec![String::from("A"), String::from("B")];
+        assert_eq!(
+            concat(array.iter().map(|s| s.clone()), "---"),
+            String::from("A---B")
+        );
+    }
+
+    #[test]
+    fn border_cases() {
+        assert_eq!(expand("Hello{}World{}", 15), "Hello     World".to_string());
+    }
 }
