@@ -13,7 +13,7 @@ Build and execute with `cargo run --release`.
 
 ## Example
 
-![Usage example](screenshot/monster_and_move.png "Screenshot")
+![Usage example](screenshot/screenshot.jpg)
 
 
 ## TODO
