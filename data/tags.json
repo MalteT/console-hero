@@ -69,7 +69,6 @@
     "key": "ignores_armor",
     "name": "ignores armor"
   },
-  "tags",
   {
     "description": "When making your own magic items keep in mind that these items are magical. Simple modifiers, like+1 damage, are the realm of the mundane—magic items should provide more interesting bonuses.",
     "key": "magical",
