@@ -14,8 +14,8 @@ Build and execute with `cargo run --release`.
 
 ## TODO
 
-- [ ] Add moves from [moves.json](data/moves.json)
-- [ ] Add monsters from [monsters.json](data/monsters.json)
+- [x] Add moves from [moves.json](data/moves.json)
+- [x] Add monsters from [monsters.json](data/monsters.json)
 - [ ] Add missing moves from [special_moves.json](data/special_moves.json) and [basic_moves.json](data/basic_moves.json)
 - [ ] Add tags from [tags.json](data/tags.json)
 - [ ] Add classes from [classes.json](data/classes.json)
