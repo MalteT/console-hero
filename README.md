@@ -14,18 +14,18 @@ Build and execute with `cargo run --release`.
 
 ## TODO
 
-- [ ] Add moves from [data/moves.json]
-- [ ] Add monsters from [data/monsters.json]
-- [ ] Add missing moves from [data/special_moves.json] and [data/basic_moves.json]
-- [ ] Add tags from [data/tags.json]
-- [ ] Add classes from [data/classes.json]
-- [ ] Add equipment from [data/equipment.json]
+- [ ] Add moves from [moves.json](data/moves.json)
+- [ ] Add monsters from [monsters.json](data/monsters.json)
+- [ ] Add missing moves from [special_moves.json](data/special_moves.json) and [basic_moves.json](data/basic_moves.json)
+- [ ] Add tags from [tags.json](data/tags.json)
+- [ ] Add classes from [classes.json](data/classes.json)
+- [ ] Add equipment from [equipment.json](data/equipment.json)
 - [ ] Complete completion (commands, ...)
 - [ ] Add option to evaluate commands non-interactively
 - [ ] Add help command `--help`/`help`
 - [ ] Unify formatting
 - [ ] Add tests
-- [ ] Add option to explain all attributes of a thing
+- [ ] Add option to explain all attributes of a thing.
       Something like `tags of ...` to list tags from `...` with description.I
 
 Thanks to the creators of Dungeon World!
