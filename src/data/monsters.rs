@@ -157,10 +157,7 @@ impl DerefMut for Monsters {
 impl fmt::Display for Attack {
     fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
         let tags = concat(self.tags.iter().map(|tag| capitalize(tag)), ", ");
-        let s = format!(
-            "{} ({}) {{}} {}",
-            self.name, self.damage, tags
-        );
+        let s = format!("{} ({}) {{}} {}", self.name, self.damage, tags);
         write!(f, "{}", s)
     }
 }
