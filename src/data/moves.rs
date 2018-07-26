@@ -1,3 +1,4 @@
+use super::helper::*;
 use colored::*;
 use regex::Regex;
 use rustyline;
@@ -8,8 +9,6 @@ use std::io;
 use std::io::Read;
 use std::io::{Error, ErrorKind::InvalidData};
 use std::ops::{Deref, DerefMut};
-
-use super::wrap;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Moves {
