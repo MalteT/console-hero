@@ -5,7 +5,7 @@ The data used in this project comes from the [DungeonWorldData](https://github.c
 
 ## Note
 
-As of yet only supports querying some moves, monsters and tags
+As of yet only supports querying some moves, monsters, tags and items.
 
 ## Usage
 
@@ -23,7 +23,7 @@ Build and execute with `cargo run --release`.
 - [ ] Add missing moves from [special_moves.json](data/special_moves.json) and [basic_moves.json](data/basic_moves.json)
 - [x] Add tags from [tags.json](data/tags.json)
 - [ ] Add classes from [classes.json](data/classes.json)
-- [ ] Add equipment from [equipment.json](data/equipment.json)
+- [x] Add items from [items.json](data/items.json)
 - [ ] Complete completion (commands, ...)
 - [ ] Add option to evaluate commands non-interactively
 - [ ] Add help command `--help`/`help`
