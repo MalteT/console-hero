@@ -127,19 +127,20 @@ impl fmt::Display for Monster {
     fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
         let width = 60;
         // Name
-        let name = self.name.bold();
-        let desc = wrap(&self.description, width - 2, " ┃ ", " ┃");
+        let name = self.name.bold().yellow();
         let hp = format!(" {} HP ", self.hp).on_red();
         let armor = format!(" {} Armor ", self.armor).on_blue();
         let hp_armor = format!("{} {}", hp, armor);
         // Name and HP and Armor
         let nha = format!("{} {{}} {}", name, hp_armor);
-        let nha = expand(&nha, width + 18);
+        let nha = expand(&nha, width + 21);
+        // Description
+        let desc = wrap(&self.description, width - 2, " ┃ ", " ┃");
         // Tags
         let tags = self.tags.iter().map(|tag| capitalize(tag));
         let tags = concat(tags, ", ").pad_to_width_with_alignment(width - 2, Alignment::Right);
         // Instinct
-        let instinct_str = "Instinct:".on_bright_white().black();
+        let instinct_str = " Instinct ".on_bright_white().black();
         let instinct = format!("{} {}!", instinct_str, self.instinct).pad_to_width(width + 11 - 2);
         // Moves
         let moves = self.moves.iter().map(|s| {
@@ -163,7 +164,7 @@ impl fmt::Display for Monster {
  ┃ {2} ┃
  ┣{0}┫
  ┃ {7} ┃
- ┣{0}┫
+ ┠{1}┨
  ┃ {3} ┃
  ┠{1}┨
 {4}
