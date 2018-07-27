@@ -12,8 +12,9 @@ As of yet only supports querying moves, monsters, tags and items.
 Build and execute with `cargo run --release`.
 
 ## Example
+The image misses some colors, but they already work!
 
-![Usage example](screenshot/screenshot.jpg)
+![Usage example](screenshot/screenshot.png)
 
 
 ## TODO
