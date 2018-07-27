@@ -1,5 +1,6 @@
 use super::helper::*;
 use colored::*;
+use pad::PadStr;
 use regex::Regex;
 use rustyline;
 use rustyline::completion::Completer;
@@ -45,6 +46,9 @@ pub struct Move {
     /// List of classes who might have this move.
     #[serde(default = "all_string")]
     classes: Vec<String>,
+    /// A short explanation of this move.
+    #[serde(default)]
+    explanation: String,
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
@@ -122,23 +126,44 @@ impl Completer for Moves {
 
 impl fmt::Display for Move {
     fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
-        let classes: String = self.classes.iter().fold(String::new(), |mut s, class| {
-            if s.len() > 0 {
-                s += ", ";
-            }
-            s += &class;
-            s
-        });
-        let desc = wrap(&self.description, 38, " ┃ ", " ┃");
-        write!(f, "
- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
- ┃ {:<38} ┃
- ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
- ┃ {} {:<31} ┃
- ┠────────────────────────────────────────┨
- {}
- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-", self.name.bold().yellow(), "Class:", classes, desc.trim())
+        let width = 40;
+        // Name
+        let name = format!("{}", self.name.bold().yellow());
+        // Description
+        let desc = wrap(&self.description, width - 2, " ┃ ", " ┃");
+        // Classes
+        let classes = self.classes
+            .iter()
+            .map(|s| capitalize(s))
+            .map(|s| format!(" {} ", s).on_bright_white().black())
+            .map(|s| format!("{}", s));
+        let count_classes = classes.len();
+        let classes = concat(classes, ", ").pad_to_width(width + count_classes * 9);
+        // Explanation
+        let exp = if self.explanation == String::new() {
+            format!("")
+        } else {
+            let exp = wrap(&self.explanation, width - 2, " ┃ ", " ┃");
+            format!("\n ┠{}┨\n{}", thin_line(width), exp)
+        };
+        write!(
+            f,
+            "
+ ┏{0}┓
+ ┃ {2} ┃
+ ┣{0}┫
+ ┃ {3} ┃
+ ┠{1}┨
+ {4}{5}
+ ┗{0}┛
+",
+            bold_line(width),
+            thin_line(width),
+            name.pad_to_width(width + 7),
+            classes,
+            desc.trim(),
+            exp
+        )
     }
 }
 
