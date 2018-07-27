@@ -82,7 +82,7 @@ impl Items {
 
 impl fmt::Display for Item {
     fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
-        let width = 50;
+        let width = 40;
         // Name
         let name = self.name.pad_to_width(width - 2).bold().yellow();
         // Description

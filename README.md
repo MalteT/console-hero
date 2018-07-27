@@ -5,7 +5,7 @@ The data used in this project comes from the [DungeonWorldData](https://github.c
 
 ## Note
 
-As of yet only supports querying some moves, monsters, tags and items.
+As of yet only supports querying moves, monsters, tags and items.
 
 ## Usage
 
@@ -20,7 +20,7 @@ Build and execute with `cargo run --release`.
 
 - [x] Add moves from [moves.json](data/moves.json)
 - [x] Add monsters from [monsters.json](data/monsters.json)
-- [ ] Add missing moves from [special_moves.json](data/special_moves.json) and [basic_moves.json](data/basic_moves.json)
+- ~~[ ] Add missing moves from [special_moves.json](data/special_moves.json) and [basic_moves.json](data/basic_moves.json)~~ Not relevant.
 - [x] Add tags from [tags.json](data/tags.json)
 - [ ] Add classes from [classes.json](data/classes.json)
 - [x] Add items from [items.json](data/items.json)

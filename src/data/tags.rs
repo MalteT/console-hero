@@ -69,7 +69,7 @@ impl Tags {
 
 impl fmt::Display for Tag {
     fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
-        let width = 60;
+        let width = 40;
         // Name
         let name = capitalize(&self.name)
             .pad_to_width(width - 2)
