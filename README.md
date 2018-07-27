@@ -25,8 +25,8 @@ Build and execute with `cargo run --release`.
 - [ ] Add classes from [classes.json](data/classes.json)
 - [x] Add items from [items.json](data/items.json)
 - [ ] Complete completion (commands, ...)
-- [ ] Add option to evaluate commands non-interactively
-- [ ] Add help command `--help`/`help`
+- [x] Add option to evaluate commands non-interactively
+- [x] Add help command `--help`/`help`
 - [ ] Unify formatting
 - [ ] Add tests
 - [ ] Add option to explain all attributes of a thing.
