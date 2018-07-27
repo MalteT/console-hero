@@ -8,7 +8,6 @@ use serde_json;
 use std::fmt;
 use std::io;
 use std::io::Read;
-use std::io::{Error, ErrorKind::InvalidData};
 use std::ops::{Deref, DerefMut};
 
 /// Wrapper around a `Vec<Moves>`.
@@ -33,7 +32,7 @@ pub struct Moves {
 /// ┃ damage.                                ┃
 /// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 /// ```
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(deny_unknown_fields)]
 pub struct Move {
     /// Name of the move.
@@ -69,9 +68,28 @@ enum MatchType {
 impl Moves {
     /// Parse the data given through the reader into `Moves`.
     pub fn parse<R: Read>(reader: R) -> io::Result<Self> {
-        serde_json::from_reader(reader)
-            .map(|data| Moves { data })
-            .map_err(|e| Error::new(InvalidData, e))
+        let mut data: Vec<Move> = serde_json::from_reader(reader)?;
+        let lookup = Moves { data: data.clone() };
+        data.iter_mut().for_each(|ref mut mv| {
+            if mv.replaces != String::new() {
+                let repl = lookup
+                    .get(&mv.replaces)
+                    .expect(&format!("Key {} does not exist!", mv.replaces))
+                    .name
+                    .clone();
+                mv.replaces = repl;
+            }
+            if mv.requires != String::new() {
+                let repl = lookup
+                    .get(&mv.requires)
+                    .expect(&format!("Key {} does not exist!", mv.requires))
+                    .name
+                    .clone();
+                mv.requires = repl;
+            }
+        });
+
+        Ok(Moves { data })
     }
     /// Find a move that matches the given String `regex`.
     /// Matches the given fields in the given order:
@@ -98,6 +116,11 @@ impl Moves {
             }
         }
         best.1
+    }
+    /// Find the move with the given `key`.
+    /// If none is found, [None](Option::None) is returned.
+    pub fn get(&self, key: &str) -> Option<&Move> {
+        self.data.iter().find(|mv| mv.key == key)
     }
 }
 
