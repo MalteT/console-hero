@@ -34,6 +34,7 @@ pub struct Moves {
 /// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 /// ```
 #[derive(Serialize, Deserialize, Debug)]
+#[serde(deny_unknown_fields)]
 pub struct Move {
     /// Name of the move.
     name: String,
@@ -49,6 +50,12 @@ pub struct Move {
     /// A short explanation of this move.
     #[serde(default)]
     explanation: String,
+    /// Replaces this move
+    #[serde(default)]
+    replaces: String,
+    /// The following move is required for this
+    #[serde(default)]
+    requires: String,
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
@@ -129,8 +136,6 @@ impl fmt::Display for Move {
         let width = 40;
         // Name
         let name = format!("{}", self.name.bold().yellow());
-        // Description
-        let desc = wrap(&self.description, width - 2, " ┃ ", " ┃");
         // Classes
         let classes = self.classes
             .iter()
@@ -138,31 +143,66 @@ impl fmt::Display for Move {
             .map(|s| format!(" {} ", s).on_bright_white().black())
             .map(|s| format!("{}", s));
         let count_classes = classes.len();
-        let classes = concat(classes, ", ").pad_to_width(width + count_classes * 9);
+        let classes = concat(classes, ", ");
+        let name_classes = format!("{}{{}}{}", name, classes);
+        // Description
+        let desc = wrap(&self.description, width - 2, " ┃ ", " ┃");
         // Explanation
         let exp = if self.explanation == String::new() {
             format!("")
         } else {
             let exp = wrap(&self.explanation, width - 2, " ┃ ", " ┃");
-            format!("\n ┠{}┨\n{}", thin_line(width), exp)
+            format!("\n ┠{}┠\n{}", thin_line(width), exp)
         };
+        // Requires and replaces
+        let req = if self.requires == String::new() && self.replaces == String::new() {
+            format!("")
+        } else if self.replaces == String::new() {
+            format!(
+                "\n ┃ {1} {2} ┃\n ┠{0}┨",
+                thin_line(width),
+                " Requires ".on_red().black(),
+                self.requires.pad_to_width(width - 13)
+            )
+        } else if self.requires == String::new() {
+            format!(
+                "\n ┃ {1} {2} ┃\n ┠{0}┨",
+                thin_line(width),
+                " Replaces ".on_bright_white().black(),
+                self.replaces.pad_to_width(width - 13)
+            )
+        } else {
+            format!(
+                "\n ┃ {1} {2} ┃\n ┃ {3} {4} ┃\n ┠{0}┨",
+                thin_line(width),
+                " Requires ".on_red().black(),
+                self.requires.pad_to_width(width - 13),
+                " Replaces ".on_bright_white().black(),
+                self.replaces.pad_to_width(width - 13),
+            )
+        };
+        format!(
+            "\n ┠{}┨\n ┃ {} {} ┃\n ┃ {} {} ┃\n",
+            thin_line(width),
+            " Requires ",
+            self.requires,
+            " Replaces ",
+            self.replaces
+        );
         write!(
             f,
             "
  ┏{0}┓
- ┃ {2} ┃
- ┣{0}┫
- ┃ {3} ┃
- ┠{1}┨
- {4}{5}
+ ┃ {1} ┃
+ ┣{0}┫{4}
+ {2}{3}
  ┗{0}┛
 ",
             bold_line(width),
-            thin_line(width),
-            name.pad_to_width(width + 7),
-            classes,
+            expand(&name_classes, width + (count_classes + 1) * 9),
             desc.trim(),
-            exp
+            exp,
+            req
         )
     }
 }
