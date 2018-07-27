@@ -1,6 +1,6 @@
 [package]
 name = "console-hero"
-version = "0.4.0"
+version = "0.5.0"
 authors = ["Malte Tammena <malte.tammena@gmx.de>"]
 
 [dependencies]
@@ -17,3 +17,5 @@ textwrap = "0.10.0"
 colored = "1.6.1"
 pad = "0.1.5"
 unicode-width = "0.1.5"
+clap = { version="2.32.0", features = ["yaml"] }
+version = "3.0.0"

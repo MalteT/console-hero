@@ -1,0 +1,61 @@
+name: Console Hero
+author: Malte Tammena <malte.tammena@gmx.de>
+about: Your GM tool for Dungeon World (http://www.dungeon-world.com/)
+args:
+  - monster_data:
+      short: m
+      long: monster_data
+      value_name: FILE
+      help: Specify a custom monster data file
+      takes_value: true
+      default_value: data/monsters.json
+  - move_data:
+      short: o
+      long: move_data
+      value_name: FILE
+      help: Specify a custom move data file
+      takes_value: true
+      default_value: data/moves.json
+  - tag_data:
+      short: t
+      long: tag_data
+      value_name: FILE
+      help: Specify a custom tag data file
+      takes_value: true
+      default_value: data/tags.json
+  - item_data:
+      short: i
+      long: item_data
+      value_name: FILE
+      help: Specify a custom item data file
+      takes_value: true
+      default_value: data/items.json
+  - interactive:
+      short: I
+      long: interactive
+      help: Enter interactive mode (default, if no subcommand is given)
+subcommands:
+  - item:
+      about: Find the first item matching the given regex
+      args:
+        - REGEX:
+            help: Regex to search for
+            required: true
+  - monster:
+      about: Find the first monster matching the given regex
+      args:
+        - REGEX:
+            help: Regex to search for
+            required: true
+  - move:
+      about: Find the first move matching the given regex
+      args:
+        - REGEX:
+            help: Regex to search for
+            required: true
+  - tag:
+      about: Find the first tag matching the given regex
+      args:
+        - REGEX:
+            help: Regex to search for
+            required: true
