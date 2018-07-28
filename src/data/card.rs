@@ -14,6 +14,7 @@ use pad::PadStr;
 use regex::Regex;
 use std::fmt;
 use textwrap::wrap_iter;
+use unicode_width::UnicodeWidthStr as UW;
 
 /// A terminal card.
 /// Builder for card like terminal output used for the monster, moves, etc cards.
@@ -139,7 +140,7 @@ impl Card {
 /// Calculate the width of a string containing escape codes for coloring.
 pub fn terminal_string_width(s: &str) -> usize {
     let re = Regex::new(r"\x1B\[.*?m").unwrap();
-    re.replace_all(s, "").len()
+    re.replace_all(s, "").width()
 }
 
 /// Wraps the given String by word wrapping at the given
@@ -218,22 +219,23 @@ impl fmt::Display for Card {
 /// Expands the given string `text` at `{}` to match the given `width`.
 /// If the `text` is already wider than `width` do nothing
 pub fn expand(text: &str, width: usize) -> String {
-    if text.contains("{}") {
-        let w = terminal_string_width(text);
-        if w > width {
-            text.replacen("{}", "", 1).to_string()
-        } else {
-            let parts: Vec<&str> = text.split("{}").collect();
-            let left = parts[0];
-            let right = parts[1];
-            let lw = terminal_string_width(left);
-            let rw = terminal_string_width(right);
-            let missing = width - lw - rw;
-            format!("{}{}{}", left, " ".repeat(missing), right)
-        }
+    let mut text = text.to_string();
+    if !text.contains("{}") {
+        text += "{} ";
+    } else if text.ends_with("{}") {
+        text += " ";
+    }
+    let w = terminal_string_width(&text);
+    if w > width {
+        text.replacen("{}", "", 1).to_string()
     } else {
-        let add_len = text.len() - terminal_string_width(text);
-        text.pad_to_width(width + add_len - 2)
+        let parts: Vec<&str> = text.split("{}").collect();
+        let left = parts[0];
+        let right = parts[1];
+        let lw = terminal_string_width(left);
+        let rw = terminal_string_width(right);
+        let missing = width - lw - rw;
+        format!("{}{}{}", left, " ".repeat(missing), right)
     }
 }
 
@@ -286,5 +288,11 @@ mod tests {
         assert_eq!(terminal_string_width(&x_red_black), 11);
         assert_eq!(terminal_string_width(&x_blink), 11);
         assert_eq!(terminal_string_width(&x_dimmed), 11);
+        assert_eq!(x.width(), terminal_string_width(&x));
+        assert!(x_red.width() != terminal_string_width(&x_red));
+
+        let name = format!("{}", "Hello World".bold().yellow());
+
+        assert_eq!(terminal_string_width(&name), 11);
     }
 }

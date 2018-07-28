@@ -1,6 +1,6 @@
+use super::card::Card;
 use super::helper::*;
 use colored::*;
-use pad::PadStr;
 use regex::Regex;
 use rustyline;
 use rustyline::completion::Completer;
@@ -84,36 +84,22 @@ impl fmt::Display for Item {
     fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
         let width = 40;
         // Name
-        let name = self.name.pad_to_width(width - 2).bold().yellow();
-        // Description
-        let desc = wrap(&self.description, width - 2, " ┃ ", " ┃");
-        let desc_part = if desc == "" {
-            format!("\n")
-        } else {
-            format!(
-                "
- ┠{0}┨
-{1}
-",
-                thin_line(width),
-                desc
-            )
-        };
+        let name = format!("{}", self.name.bold().yellow());
         // Tags
         let tags = self.tags.iter().map(|tag| format!("{}", tag));
-        let tags = concat(tags, ", ").pad_to_width(width - 2);
+        let tags = concat(tags, ", ");
+        // Create the card and show it
         write!(
             f,
-            "
- ┏{0}┓
- ┃ {1} ┃
- ┣{0}┫
- ┃ {2} ┃{3} ┗{0}┛
-",
-            bold_line(width),
-            name,
-            tags,
-            desc_part,
+            "{}",
+            Card::new()
+                .with_width(width)
+                .with_heavy_border()
+                .line(&name)
+                .heavy_line()
+                .line(&tags)
+                .light_line()
+                .text(&self.description)
         )
     }
 }
