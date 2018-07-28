@@ -21,7 +21,7 @@ The image misses some colors, but they already work!
 
 - [x] Add moves from [moves.json](data/moves.json)
 - [x] Add monsters from [monsters.json](data/monsters.json)
-- ~~[ ] Add missing moves from [special_moves.json](data/special_moves.json) and [basic_moves.json](data/basic_moves.json)~~ Not relevant.
+- [x] ~~Add missing moves from [special_moves.json](data/special_moves.json) and [basic_moves.json](data/basic_moves.json)~~ Not relevant.
 - [x] Add tags from [tags.json](data/tags.json)
 - [ ] Add classes from [classes.json](data/classes.json)
 - [x] Add items from [items.json](data/items.json)
