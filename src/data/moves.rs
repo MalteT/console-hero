@@ -1,3 +1,5 @@
+//! Dungeon World Moves
+//!
 //! ```text
 //!  ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 //!  ┃ Anointed                       Cleric  ┃
@@ -14,7 +16,6 @@
 use super::card::Card;
 use super::helper::*;
 use colored::*;
-use pad::PadStr;
 use regex::Regex;
 use rustyline;
 use rustyline::completion::Completer;
