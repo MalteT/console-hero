@@ -1,3 +1,17 @@
+//! ```text
+//!  ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+//!  ┃ Anointed                       Cleric  ┃
+//!  ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+//!  ┃  Requires  Chosen One                  ┃
+//!  ┠━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┨
+//!  ┃ Choose one spell in addition to the    ┃
+//!  ┃ one you picked for chosen one. You are ┃
+//!  ┃ granted that spell as if it was one    ┃
+//!  ┃ level lower.                           ┃
+//!  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+//! ```
+
+use super::card::Card;
 use super::helper::*;
 use colored::*;
 use pad::PadStr;
@@ -21,16 +35,16 @@ pub struct Moves {
 /// Data about a move a character can execute.
 ///
 /// ```text
-/// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-/// ┃ Dirty Fighter                          ┃
-/// ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
-/// ┃ Class: thief                           ┃
-/// ┠────────────────────────────────────────┨
-/// ┃ When using a precise or hand weapon,   ┃
-/// ┃ your backstab deals an extra +1d8      ┃
-/// ┃ damage and all other attacks deal +1d4 ┃
-/// ┃ damage.                                ┃
-/// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+///  ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+///  ┃ Anointed                       Cleric  ┃
+///  ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+///  ┃  Requires  Chosen One                  ┃
+///  ┠━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┨
+///  ┃ Choose one spell in addition to the    ┃
+///  ┃ one you picked for chosen one. You are ┃
+///  ┃ granted that spell as if it was one    ┃
+///  ┃ level lower.                           ┃
+///  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 /// ```
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(deny_unknown_fields)]
@@ -165,67 +179,36 @@ impl fmt::Display for Move {
             .map(|s| capitalize(s))
             .map(|s| format!(" {} ", s).on_bright_white().black())
             .map(|s| format!("{}", s));
-        let count_classes = classes.len();
         let classes = concat(classes, ", ");
+        // Combine name and classes
         let name_classes = format!("{}{{}}{}", name, classes);
-        // Description
-        let desc = wrap(&self.description, width - 2, " ┃ ", " ┃");
-        // Explanation
-        let exp = if self.explanation == String::new() {
-            format!("")
-        } else {
-            let exp = wrap(&self.explanation, width - 2, " ┃ ", " ┃");
-            format!("\n ┠{}┠\n{}", thin_line(width), exp)
-        };
-        // Requires and replaces
-        let req = if self.requires == String::new() && self.replaces == String::new() {
-            format!("")
-        } else if self.replaces == String::new() {
-            format!(
-                "\n ┃ {1} {2} ┃\n ┠{0}┨",
-                thin_line(width),
-                " Requires ".on_red().black(),
-                self.requires.pad_to_width(width - 13)
-            )
-        } else if self.requires == String::new() {
-            format!(
-                "\n ┃ {1} {2} ┃\n ┠{0}┨",
-                thin_line(width),
-                " Replaces ".on_bright_white().black(),
-                self.replaces.pad_to_width(width - 13)
-            )
-        } else {
-            format!(
-                "\n ┃ {1} {2} ┃\n ┃ {3} {4} ┃\n ┠{0}┨",
-                thin_line(width),
-                " Requires ".on_red().black(),
-                self.requires.pad_to_width(width - 13),
-                " Replaces ".on_bright_white().black(),
-                self.replaces.pad_to_width(width - 13),
-            )
-        };
-        format!(
-            "\n ┠{}┨\n ┃ {} {} ┃\n ┃ {} {} ┃\n",
-            thin_line(width),
-            " Requires ",
-            self.requires,
-            " Replaces ",
+        // Requires tag
+        let has_requires = self.requires != String::new();
+        let req = format!("{} {}", " Requires ".on_red().black(), self.requires);
+        // Has replaces tag
+        let has_replaces = self.replaces != String::new();
+        let rep = format!(
+            "{} {}",
+            " Replaces ".on_bright_white().black(),
             self.replaces
         );
+        // Has an explanation
+        let has_explanation = self.explanation != String::new();
+        // Create the card and write it
         write!(
             f,
-            "
- ┏{0}┓
- ┃ {1} ┃
- ┣{0}┫{4}
- {2}{3}
- ┗{0}┛
-",
-            bold_line(width),
-            expand(&name_classes, width + (count_classes + 1) * 9),
-            desc.trim(),
-            exp,
-            req
+            "{}",
+            Card::new()
+                .with_width(width)
+                .with_heavy_border()
+                .line(&name_classes)
+                .heavy_line()
+                .line_if(&req, has_requires)
+                .line_if(&rep, has_replaces)
+                .light_line_if(has_requires || has_replaces)
+                .text(&self.description)
+                .light_line_if(has_explanation)
+                .text_if(&self.explanation, has_explanation)
         )
     }
 }

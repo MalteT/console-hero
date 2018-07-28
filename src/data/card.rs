@@ -88,6 +88,14 @@ impl Card {
         self.elements.push(Element::LightLine);
         self
     }
+    /// Add a light line if `pred` is `true`.
+    pub fn light_line_if(self, pred: bool) -> Self {
+        if pred {
+            self.light_line()
+        } else {
+            self
+        }
+    }
     /// Add a heavy line.
     pub fn heavy_line(mut self) -> Self {
         self.elements.push(Element::HeavyLine);
@@ -98,10 +106,26 @@ impl Card {
         self.elements.push(Element::Text(String::from(s.trim())));
         self
     }
+    /// Add a text if `pred` is `true`.
+    pub fn text_if(self, s: &str, pred: bool) -> Self {
+        if pred {
+            self.text(s)
+        } else {
+            self
+        }
+    }
     /// Add a single line, with spacing at `{}`.
     pub fn line(mut self, s: &str) -> Self {
         self.elements.push(Element::Line(String::from(s)));
         self
+    }
+    /// Add a single line, with spacing at `{}` if `pred` is `true`.
+    pub fn line_if(self, s: &str, pred: bool) -> Self {
+        if pred {
+            self.line(s)
+        } else {
+            self
+        }
     }
     /// Add a list of items.
     pub fn list(mut self, list: Vec<String>) -> Self {
@@ -206,8 +230,8 @@ pub fn expand(text: &str, width: usize) -> String {
             format!("{}{}{}", left, " ".repeat(missing), right)
         }
     } else {
-        let add_len = text.len() - terminal_string_width(text) - 2;
-        text.pad_to_width(width + add_len)
+        let add_len = text.len() - terminal_string_width(text);
+        text.pad_to_width(width + add_len - 2)
     }
 }
 

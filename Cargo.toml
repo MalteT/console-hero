@@ -1,6 +1,6 @@
 [package]
 name = "console-hero"
-version = "0.5.5"
+version = "0.5.6"
 authors = ["Malte Tammena <malte.tammena@gmx.de>"]
 
 [dependencies]
