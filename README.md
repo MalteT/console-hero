@@ -32,5 +32,8 @@ The image misses some colors, but they already work!
 - [ ] Add tests
 - [ ] Add option to explain all attributes of a thing.
       Something like `tags of ...` to list tags from `...` with description.I
+- [ ] Add a dice already, will you?!
+
+---
 
 Thanks to the creators of Dungeon World!
