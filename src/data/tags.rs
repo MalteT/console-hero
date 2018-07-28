@@ -1,6 +1,5 @@
-use super::helper::*;
-use colored::*;
-use pad::PadStr;
+use super::card::Card;
+use colored::Colorize;
 use regex::Regex;
 use rustyline;
 use rustyline::completion::Completer;
@@ -20,7 +19,14 @@ pub struct Tags {
 
 /// Tag data.
 /// ```text
-/// TODO
+///  ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+///  ┃ +bonus                                 ┃
+///  ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+///  ┃ It modifies your effectiveness in a    ┃
+///  ┃ specified situation. It might be “+1   ┃
+///  ┃ forward to spout lore” or “-1 ongoing  ┃
+///  ┃ to hack and slash.”                    ┃
+///  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 /// ```
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Tag {
@@ -70,25 +76,15 @@ impl Tags {
 impl fmt::Display for Tag {
     fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
         let width = 40;
-        // Name
-        let name = capitalize(&self.name)
-            .pad_to_width(width - 2)
-            .bold()
-            .yellow();
-        // Description
-        let desc = wrap(&self.description, width - 2, " ┃ ", " ┃");
+        let name = format!("{}", self.name.bold().yellow());
         write!(
             f,
-            "
- ┏{0}┓
- ┃ {1} ┃
- ┣{0}┫
-{2}
- ┗{0}┛
-",
-            bold_line(width),
-            name,
-            desc
+            "{}",
+            Card::new()
+                .with_width(width)
+                .line(&name)
+                .heavy_line()
+                .text(&self.description)
         )
     }
 }
