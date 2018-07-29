@@ -137,6 +137,32 @@ impl Card {
     }
 }
 
+impl Border {
+    /// Get a line of the given `width`.
+    pub fn line(&self, width: usize) -> String {
+        match *self {
+            Border::Heavy => "━".repeat(width),
+            Border::Light => "─".repeat(width),
+        }
+    }
+    /// Get the first line with the given `width`.
+    pub fn head(&self, width: usize) -> String {
+        let line = self.line(width);
+        match *self {
+            Border::Heavy => format!(" ┏{}┓", line),
+            Border::Light => format!(" ┌{}┐", line),
+        }
+    }
+    /// Get the end line with the given `width`.
+    pub fn end(&self, width: usize) -> String {
+        let line = self.line(width);
+        match self {
+            Border::Heavy => format!(" ┗{}┛\n", line),
+            Border::Light => format!(" └{}┘\n", line),
+        }
+    }
+}
+
 /// Calculate the width of a string containing escape codes for coloring.
 pub fn terminal_string_width(s: &str) -> usize {
     let re = Regex::new(r"\x1B\[.*?m").unwrap();
@@ -182,17 +208,10 @@ impl fmt::Display for Card {
             Border::Heavy => " ┃ ",
             Border::Light => " ┃ ",
         };
-        let line = match self.border {
-            Border::Heavy => "━".repeat(self.width),
-            Border::Light => "─".repeat(self.width),
-        };
-        let mut first = vec![match self.border {
-            Border::Heavy => format!(" ┏{}┓", line),
-            Border::Light => format!(" ┌{}┐", line),
-        }];
+        let mut first = vec![self.border.head(self.width)];
         let els = self.elements.iter().map(|ref el| match el {
-            Element::LightLine => format!(" ┠{}┨", line),
-            Element::HeavyLine => format!(" ┣{}┫", line),
+            Element::LightLine => format!(" ┠{}┨", Border::Light.line(self.width)),
+            Element::HeavyLine => format!(" ┣{}┫", Border::Heavy.line(self.width)),
             Element::Text(s) => format!("{}", wrap(s, self.width - 2, border)),
             Element::Line(l) => format!("{0}{1}{0}", border, expand(l, self.width - 2)),
             Element::List(v) => format!(
@@ -200,10 +219,7 @@ impl fmt::Display for Card {
                 listify(v.iter().map(|v| v.clone()), '•', self.width - 2, border,)
             ),
         });
-        let last = vec![match self.border {
-            Border::Heavy => format!(" ┗{}┛\n", line),
-            Border::Light => format!(" └{}┘\n", line),
-        }];
+        let last = vec![self.border.end(self.width)];
         first.extend(els);
         first.extend(last);
         write!(
