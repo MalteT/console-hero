@@ -1,6 +1,6 @@
+use super::card::Card;
 use super::helper::*;
 use colored::*;
-use pad::{Alignment, PadStr};
 use regex::Regex;
 use rustyline;
 use rustyline::completion::Completer;
@@ -52,6 +52,7 @@ pub struct Monster {
     /// Unique identifier for the monster.
     key: String,
     /// Name of the monster.
+    /// TODO: Fix data!
     #[serde(default)]
     name: String,
     /// List of tags, this monster has.
@@ -128,60 +129,58 @@ impl fmt::Display for Monster {
         let width = 60;
         // Name
         let name = self.name.bold().yellow();
-        let hp = format!(" {} HP ", self.hp).on_red();
-        let armor = format!(" {} Armor ", self.armor).on_blue();
-        let hp_armor = format!("{} {}", hp, armor);
-        // Name and HP and Armor
-        let nha = format!("{} {{}} {}", name, hp_armor);
-        let nha = expand(&nha, width + 21);
-        // Description
-        let desc = wrap(&self.description, width - 2, " ┃ ", " ┃");
+        let name_hp_armor = format!(
+            "{} {{}} {} {}",
+            name,
+            format!(" {} HP ", self.hp).on_red(),
+            format!(" {} Armor ", self.armor).on_blue(),
+        );
+        // Has description
+        let has_description = self.description != String::new();
+        // Attacks
+        // TODO Handle multiple attacks
+        assert!(self.attacks.len() <= 1);
+        let attack = self.attacks
+            .first()
+            .map(|a| format!("{}", a))
+            .unwrap_or(String::new());
         // Tags
         let tags = self.tags.iter().map(|tag| capitalize(tag));
-        let tags = concat(tags, ", ").pad_to_width_with_alignment(width - 2, Alignment::Right);
+        let tags = format!(" {{}}{}", concat(tags, ", "));
+        // Has Tags
+        let has_tags = tags != String::from(" {}");
         // Instinct
-        let instinct_str = " Instinct ".on_bright_white().black();
-        let instinct = format!("{} {}!", instinct_str, self.instinct).pad_to_width(width + 11 - 2);
+        let instinct = " Instinct ".on_bright_white().black();
+        let instinct = format!("{} {}!", instinct, self.instinct);
+        // Has instinct
+        let has_instinct = self.instinct != String::new();
         // Moves
-        let moves = self.moves.iter().map(|s| {
-            let mut s = s.clone();
-            s += ".";
-            s
-        });
-        // Attacks
-        let attacks = self.attacks
+        let moves = self.moves
             .iter()
-            .map(|attack| format!("{}", attack))
-            .map(|attack| expand(&attack, width - 2));
-        let mut attacks = concat(attacks, ", ");
-        if attacks == "" {
-            attacks = "no attacks".pad_to_width(width - 2);
-        }
+            .map(|s| {
+                let mut s = s.clone();
+                s += ".";
+                s
+            })
+            .collect();
+        // Create the card and print it
         write!(
             f,
-            "
- ┏{0}┓
- ┃ {2} ┃
- ┣{0}┫
- ┃ {7} ┃
- ┠{1}┨
- ┃ {3} ┃
- ┠{1}┨
-{4}
- ┠{1}┨
- ┃ {5} ┃
- ┠{1}┨
-{6}
- ┗{0}┛
-",
-            bold_line(width),
-            thin_line(width),
-            nha,
-            tags,
-            desc,
-            instinct,
-            listify(moves, '•', width - 2, " ┃ ", " ┃"),
-            attacks
+            "{}",
+            Card::new()
+                .with_heavy_border()
+                .with_width(width)
+                .line(&name_hp_armor)
+                .heavy_line()
+                .line_if(&attack, !self.attacks.is_empty())
+                .light_line_if(!self.attacks.is_empty())
+                .line_if(&tags, has_tags)
+                .light_line_if(has_tags)
+                .text_if(&self.description, has_description)
+                .light_line_if(has_description)
+                .line_if(&instinct, has_instinct)
+                .light_line_if(has_instinct)
+                .list(moves)
         )
     }
 }
