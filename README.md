@@ -14,6 +14,7 @@ Build and execute with `cargo run --release`.
 
 ## Usage
 
+Asking `console-hero` for help:
 ```
 > cargo run -- help
 
@@ -37,6 +38,19 @@ SUBCOMMANDS:
     monster    Find the first monster matching the given regex
     move       Find the first move matching the given regex
     tag        Find the first tag matching the given regex
+```
+
+Using the `help` command from within the interactive mode:
+```
+>> help
+
+COMMANDS:
+    help | info       Print this usage information
+    quit              Exit interactive mode
+    item REGEX        Find the first item matching the given REGEX
+    monster REGEX     Find the first monster matching the given REGEX
+    move REGEX        Find the first move matching the given REGEX
+    tag REGEX         Find the first tag matching the given REGEX
 ```
 
 ## Example
