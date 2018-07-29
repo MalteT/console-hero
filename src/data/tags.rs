@@ -1,4 +1,5 @@
 use super::card::Card;
+use super::helper::capitalize;
 use colored::Colorize;
 use regex::Regex;
 use rustyline;
@@ -76,7 +77,8 @@ impl Tags {
 impl fmt::Display for Tag {
     fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
         let width = 40;
-        let name = format!("{}", self.name.bold().yellow());
+        let name = capitalize(&self.name);
+        let name = format!("{}", name.bold().yellow());
         write!(
             f,
             "{}",
