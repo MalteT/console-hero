@@ -4,9 +4,7 @@ A [Dungeon World](http://www.dungeon-world.com/) command line helper.
 But has autocompletion and history, thanks to [rustyline](https://github.com/kkawakam/rustyline).
 The data used in this project comes from the [DungeonWorldData](https://github.com/Vindexus/DungeonWorldData) project.
 
-## Note
-
-As of yet only supports querying moves, monsters, tags and items.
+Supports querying monster, items, tags, moves and die rolling.
 
 ## Build
 
@@ -37,6 +35,7 @@ SUBCOMMANDS:
     item       Find the first item matching the given regex
     monster    Find the first monster matching the given regex
     move       Find the first move matching the given regex
+    roll       Roll a die using a d20 expression
     tag        Find the first tag matching the given regex
 ```
 
@@ -74,7 +73,7 @@ The image misses some colors, but they already work!
 - [ ] Add tests
 - [ ] Add option to explain all attributes of a thing.
       Something like `tags of ...` to list tags from `...` with description.I
-- [ ] Add a dice already, will you?!
+- [x] Add a dice already, will you?!
 
 ---
 
