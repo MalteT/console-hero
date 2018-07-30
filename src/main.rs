@@ -12,8 +12,10 @@ extern crate unicode_width;
 extern crate clap;
 #[macro_use]
 extern crate version;
+extern crate d20;
 
 mod data;
+mod die;
 #[cfg(test)]
 mod tests;
 
@@ -44,6 +46,8 @@ fn main() -> io::Result<()> {
         search_move(&data, matches.value_of("REGEX").unwrap());
     } else if let Some(matches) = matches.subcommand_matches("tag") {
         search_tag(&data, matches.value_of("REGEX").unwrap());
+    } else if let Some(matches) = matches.subcommand_matches("roll") {
+        roll_dice(matches.value_of("D20_EXPR").unwrap());
     } else {
         subcommand_given = false;
     }
@@ -59,7 +63,7 @@ fn main() -> io::Result<()> {
         // Loop until user wants to exit
         loop {
             // Read the input
-            let readline = rl.readline(">> ");
+            let readline = rl.readline(" > ");
             let readline = match readline {
                 Ok(line) => {
                     rl.add_history_entry(&line);
@@ -75,6 +79,7 @@ fn main() -> io::Result<()> {
             match readline.as_str() {
                 "quit" | "exit" | "q" => break,
                 "help" | "info" => print_help(),
+                m if m.starts_with("roll") => roll_dice(m),
                 m if m.starts_with("item ") => search_item(&data, m),
                 m if m.starts_with("monster ") => search_monster(&data, m),
                 m if m.starts_with("move ") => search_move(&data, m),
@@ -100,6 +105,12 @@ COMMANDS:
     tag     REGEX     Find the first tag matching the given REGEX
 "#
     );
+}
+
+/// Try to parse the given string into a dice roll
+fn roll_dice<'a>(s: &'a str) {
+    let s = s.trim_left_matches("roll ");
+    die::roll(s);
 }
 
 /// Search for an item

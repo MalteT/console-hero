@@ -1,11 +1,11 @@
 [package]
 name = "console-hero"
-version = "0.5.11"
+version = "0.6.0"
 authors = ["Malte Tammena <malte.tammena@gmx.de>"]
 
 [dependencies]
 rustyline = "1.0.0"
-#d20 = "0.1.0"
+d20 = "0.1.0"
 serde_json = "1.0.24"
 #jsonpath = "0.1.1"
 #log = "0.4.3"

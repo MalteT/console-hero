@@ -35,6 +35,28 @@ args:
       long: interactive
       help: Enter interactive mode (default, if no subcommand is given)
 subcommands:
+  - roll:
+      about: Roll a die using a d20 expression
+      long_about: |
+        Roll a die using a d20 expression. The expression should be of the form:
+
+              <roll> ::= <some_die> | [ "-" ] <constant> | <roll> [ <add_del> <roll> ]
+          <some_die> ::= <constant> "d" <constant>
+          <constant> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | <constant>
+           <add_del> ::= "+" | "-"
+
+        Examples:
+                     1d6    Roll a normal die
+                    1d20    Roll a die with 20 sides
+                    4d20    Roll 4 die with 20 sides
+                  9d4+14    Roll 9 die with 4 sides and add 14
+               3d3-9+2d6    Roll 3 die with 3 sides subtract 9 and add 2 d6
+                      -9    Return -9
+         -9+25-2+14-7+21    Abuse this program to calculate the answer to everything
+      args:
+        - D20_EXPR:
+            help: D20 expression to evaluate
+            required: true
   - item:
       about: Find the first item matching the given regex
       args:
