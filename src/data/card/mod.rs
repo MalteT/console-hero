@@ -10,11 +10,14 @@
 //!  ┃ to hack and slash.”                    ┃
 //!  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //! ```
-use pad::PadStr;
-use regex::Regex;
+
+mod border;
+pub mod helper;
+
+pub use self::helper::*;
+
+use self::border::Border;
 use std::fmt;
-use textwrap::wrap_iter;
-use unicode_width::UnicodeWidthStr as UW;
 
 /// A terminal card.
 /// Builder for card like terminal output used for the monster, moves, etc cards.
@@ -40,25 +43,6 @@ enum Element {
     Line(String),
     /// A list of items to be displayed as a list.
     List(Vec<String>),
-}
-
-/// Border types to be used.
-#[derive(Debug, Clone, Copy, Eq, PartialEq, Ord, PartialOrd)]
-pub enum Border {
-    /// The light border.
-    /// ```text
-    /// ┌───┐
-    /// │   │
-    /// └───┘
-    /// ```
-    Light,
-    /// The heavy border.
-    /// ```text
-    /// ┏━━━┓
-    /// ┃   ┃
-    /// ┗━━━┛
-    /// ```
-    Heavy,
 }
 
 impl Card {
@@ -137,71 +121,6 @@ impl Card {
     }
 }
 
-impl Border {
-    /// Get a line of the given `width`.
-    pub fn line(&self, width: usize) -> String {
-        match *self {
-            Border::Heavy => "━".repeat(width),
-            Border::Light => "─".repeat(width),
-        }
-    }
-    /// Get the first line with the given `width`.
-    pub fn head(&self, width: usize) -> String {
-        let line = self.line(width);
-        match *self {
-            Border::Heavy => format!(" ┏{}┓", line),
-            Border::Light => format!(" ┌{}┐", line),
-        }
-    }
-    /// Get the end line with the given `width`.
-    pub fn end(&self, width: usize) -> String {
-        let line = self.line(width);
-        match self {
-            Border::Heavy => format!(" ┗{}┛\n", line),
-            Border::Light => format!(" └{}┘\n", line),
-        }
-    }
-}
-
-/// Calculate the width of a string containing escape codes for coloring.
-pub fn terminal_string_width(s: &str) -> usize {
-    let re = Regex::new(r"\x1B\[.*?m").unwrap();
-    re.replace_all(s, "").width()
-}
-
-/// Wraps the given String by word wrapping at the given
-/// `width` and adds the given `border` left and right to each line,
-/// returning concatinated lines with `\n`s.
-pub fn wrap(text: &str, width: usize, border: &str) -> String {
-    wrap_iter(text, width)
-        .map(|s| s.pad_to_width(width))
-        .map(|s| format!("{0}{1}{0}\n", border, s))
-        .fold(String::new(), |mut s, desc| {
-            s += &desc;
-            s
-        })
-        .trim_right_matches("\n")
-        .to_string()
-}
-
-/// Make a list out of an Iterator over Strings, using the `border` left and right.
-pub fn listify<'a, I>(items: I, bullet: char, width: usize, border: &str) -> String
-where
-    I: Iterator<Item = String>,
-{
-    items
-        .map(|item| {
-            let item = item.pad_to_width(width - 2);
-            format!("{0}{1} {2}{0}\n", border, bullet, item)
-        })
-        .fold(String::new(), |mut s, item| {
-            s += &item;
-            s
-        })
-        .trim_right_matches("\n")
-        .to_string()
-}
-
 impl fmt::Display for Card {
     fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
         let border = match self.border {
@@ -232,33 +151,11 @@ impl fmt::Display for Card {
     }
 }
 
-/// Expands the given string `text` at `{}` to match the given `width`.
-/// If the `text` is already wider than `width` do nothing
-pub fn expand(text: &str, width: usize) -> String {
-    let mut text = text.to_string();
-    if !text.contains("{}") {
-        text += "{} ";
-    } else if text.ends_with("{}") {
-        text += " ";
-    }
-    let w = terminal_string_width(&text);
-    if w > width {
-        text.replacen("{}", "", 1).to_string()
-    } else {
-        let parts: Vec<&str> = text.split("{}").collect();
-        let left = parts[0];
-        let right = parts[1];
-        let lw = terminal_string_width(left);
-        let rw = terminal_string_width(right);
-        let missing = width - lw - rw;
-        format!("{}{}{}", left, " ".repeat(missing), right)
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
     use colored::Colorize;
+    use unicode_width::UnicodeWidthStr as UW;
 
     #[test]
     fn basics() {
@@ -289,6 +186,26 @@ mod tests {
                 Element::Text(String::from("In between!")),
                 Element::LightLine,
             ]
+        );
+    }
+
+    #[test]
+    fn helper() {
+        assert_eq!(
+            wrap("Hello World", 3, "i"),
+            "iHeli\nilo i\niWori\nild i".to_string()
+        );
+        assert_eq!(capitalize("hello"), "Hello".to_string());
+        assert_eq!(capitalize("ßello"), "SSello".to_string());
+        assert_eq!(
+            expand("Hello{}World", 30),
+            String::from("Hello                    World")
+        );
+        assert_eq!(expand("Hello{}World", 10), String::from("HelloWorld"));
+        let array = vec![String::from("A"), String::from("B")];
+        assert_eq!(
+            concat(array.iter().map(|s| s.clone()), "---"),
+            String::from("A---B")
         );
     }
 

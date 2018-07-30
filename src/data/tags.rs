@@ -1,5 +1,5 @@
+use super::card::helper::capitalize;
 use super::card::Card;
-use super::helper::capitalize;
 use colored::Colorize;
 use regex::Regex;
 use rustyline;
