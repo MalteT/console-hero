@@ -76,10 +76,10 @@ The image misses some colors, but they already work!
 - [ ] Expose a nicer API.
 - [ ] Make colors optional. Add a feature and `--colors always | never` option.
 - [ ] Use an intuitive but powerful language in interactive mode:
-      - [ ] Add quantifiers for all sort of things like `all items bag` to list all items containing the regex bag.
-            `any` is already the default but one should be able to make it explicit.
-      - [ ] Add option to explain all attributes of a thing.
-            Something like `tags of ...` to list tags from `...` with description.
+  - [ ] Add quantifiers for all sort of things like `all items bag` to list all items containing the regex bag.
+        `any` is already the default but one should be able to make it explicit.
+  - [ ] Add option to explain all attributes of a thing.
+        Something like `tags of ...` to list tags from `...` with description.
 - [ ] Add the option to create things both interactively and non-interactively.
   - [ ] Add serialization for the data
   - [ ] Add item creation
