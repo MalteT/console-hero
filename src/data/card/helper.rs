@@ -49,7 +49,6 @@ pub fn listify<I: Iterator<Item = String>>(
                     s += &line;
                     s
                 });
-            println!("{}", item);
             let border_replace = format!("{} ", border);
             let border_bullet = format!("{}{}", border, bullet);
             line.replacen(&border_replace, &border_bullet, 1)
@@ -63,7 +62,6 @@ pub fn listify<I: Iterator<Item = String>>(
     if ret == String::new() {
         wrap("", width, border)
     } else {
-        println!("{}", ret);
         ret
     }
 }

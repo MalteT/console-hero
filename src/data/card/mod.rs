@@ -61,6 +61,7 @@ impl Card {
         self
     }
     /// Use the light border for the card.
+    #[allow(dead_code)]
     pub fn with_light_border(mut self) -> Self {
         self.border = Border::Light;
         self
