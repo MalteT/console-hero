@@ -154,8 +154,6 @@ impl fmt::Display for Card {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use colored::Colorize;
-    use unicode_width::UnicodeWidthStr as UW;
 
     #[test]
     fn basics() {
@@ -187,45 +185,5 @@ mod tests {
                 Element::LightLine,
             ]
         );
-    }
-
-    #[test]
-    fn helper() {
-        assert_eq!(
-            wrap("Hello World", 3, "i"),
-            "iHeli\nilo i\niWori\nild i".to_string()
-        );
-        assert_eq!(capitalize("hello"), "Hello".to_string());
-        assert_eq!(capitalize("ßello"), "SSello".to_string());
-        assert_eq!(
-            expand("Hello{}World", 30),
-            String::from("Hello                    World")
-        );
-        assert_eq!(expand("Hello{}World", 10), String::from("HelloWorld"));
-        let array = vec![String::from("A"), String::from("B")];
-        assert_eq!(
-            concat(array.iter().map(|s| s.clone()), "---"),
-            String::from("A---B")
-        );
-    }
-
-    #[test]
-    fn terminal_string_width_test() {
-        let x = String::from("Hello World");
-        let x_red = format!("{}", x.red());
-        let x_red_black = format!("{}", x_red.on_black());
-        let x_blink = format!("{}", x_red_black.blink());
-        let x_dimmed = format!("{}", x_blink.dimmed());
-        assert_eq!(terminal_string_width(&x), 11);
-        assert_eq!(terminal_string_width(&x_red), 11);
-        assert_eq!(terminal_string_width(&x_red_black), 11);
-        assert_eq!(terminal_string_width(&x_blink), 11);
-        assert_eq!(terminal_string_width(&x_dimmed), 11);
-        assert_eq!(x.width(), terminal_string_width(&x));
-        assert!(x_red.width() != terminal_string_width(&x_red));
-
-        let name = format!("{}", "Hello World".bold().yellow());
-
-        assert_eq!(terminal_string_width(&name), 11);
     }
 }
