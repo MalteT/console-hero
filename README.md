@@ -71,9 +71,22 @@ The image misses some colors, but they already work!
 - [x] Add help command `--help`/`help`
 - [x] Unify formatting
 - [ ] Add tests
-- [ ] Add option to explain all attributes of a thing.
-      Something like `tags of ...` to list tags from `...` with description.I
+- [ ] Think of a way to handle the characters
 - [x] Add a dice already, will you?!
+- [ ] Expose a nicer API.
+- [ ] Make colors optional. Add a feature and `--colors always | never` option.
+- [ ] Use an intuitive but powerful language in interactive mode:
+      - [ ] Add quantifiers for all sort of things like `all items bag` to list all items containing the regex bag.
+            `any` is already the default but one should be able to make it explicit.
+      - [ ] Add option to explain all attributes of a thing.
+            Something like `tags of ...` to list tags from `...` with description.
+- [ ] Add the option to create things both interactively and non-interactively.
+  - [ ] Add serialization for the data
+  - [ ] Add item creation
+  - [ ] Add monster creation
+  - [ ] Add tag creation
+  - [ ] Add move creation
+  - [ ] Add character creation
 
 ---
 
