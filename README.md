@@ -33,6 +33,7 @@ OPTIONS:
 SUBCOMMANDS:
     help       Prints this message or the help of the given subcommand(s)
     item       Find the first item matching the given regex
+    list       List all items of the given category matching the optional REGEX
     monster    Find the first monster matching the given regex
     move       Find the first move matching the given regex
     roll       Roll a die using a d20 expression
@@ -57,6 +58,34 @@ The image misses some colors, but they already work!
 
 ![Usage example](screenshot/screenshot.png)
 
+### List stuff
+```
+> cargo run -- list tags n
+n ammo
++n armor
++bonus
+n coins
++n damage
+dangerous
+hand
+ignores armor
+near
+n piercing
+ration
+stun
+thrown
+two-handed
+n uses
+n weight
+worn
+
+> cargo run -- list mon dragon
+Apocalypse Dragon
+Dragon
+Dragon Turtle
+Dragon Whelp
+Dragonbone
+```
 
 ## TODO
 
@@ -70,6 +99,7 @@ The image misses some colors, but they already work!
 - [x] Add option to evaluate commands non-interactively
 - [x] Add help command `--help`/`help`
 - [x] Unify formatting
+- [x] Add option to list stuff (`list monster 'dragon'`)
 - [ ] Add tests
 - [ ] Think of a way to handle the characters
 - [x] Add a dice already, will you?!
