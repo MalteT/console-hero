@@ -72,6 +72,15 @@ impl Tags {
         }
         best.1
     }
+    /// List all tags whose name match the given `regex`.
+    pub fn list(&self, re: &str) {
+        let re = Regex::new(&format!("(?i){}", re)).unwrap();
+        self.data
+            .iter()
+            .filter(|tag| re.is_match(&tag.name))
+            .map(|tag| println!("{}", tag.name))
+            .collect::<Vec<()>>();
+    }
 }
 
 impl fmt::Display for Tag {

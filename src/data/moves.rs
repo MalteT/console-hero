@@ -137,6 +137,15 @@ impl Moves {
     pub fn get(&self, key: &str) -> Option<&Move> {
         self.data.iter().find(|mv| mv.key == key)
     }
+    /// List all moves whose name match the given `regex`.
+    pub fn list(&self, re: &str) {
+        let re = Regex::new(&format!("(?i){}", re)).unwrap();
+        self.data
+            .iter()
+            .filter(|mv| re.is_match(&mv.name))
+            .map(|mv| println!("{}", mv.name))
+            .collect::<Vec<()>>();
+    }
 }
 
 impl Deref for Moves {

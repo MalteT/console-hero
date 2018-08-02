@@ -35,6 +35,24 @@ args:
       long: interactive
       help: Enter interactive mode (default, if no subcommand is given)
 subcommands:
+  - list:
+      about: List all items of the given category matching the optional REGEX
+      long_about: |
+        List all items of the given category matching the optional REGEX.
+        Possible categories include:
+          mon[sters]   List monsters
+          mov[es]      List moves
+          i[tems]      List items
+          t[ags]       List tags
+      args:
+        - CATEGORY:
+            help: The category to list items from
+            index: 1
+            required: true
+        - REGEX:
+            help: The regex to match against
+            index: 2
+            default_value: '.*'
   - roll:
       about: Roll a die using a d20 expression
       long_about: |

@@ -78,6 +78,15 @@ impl Items {
         }
         best.1
     }
+    /// List all items whose name match the given `regex`.
+    pub fn list(&self, re: &str) {
+        let re = Regex::new(&format!("(?i){}", re)).unwrap();
+        self.data
+            .iter()
+            .filter(|item| re.is_match(&item.name))
+            .map(|item| println!("{}", item.name))
+            .collect::<Vec<()>>();
+    }
 }
 
 impl fmt::Display for Item {

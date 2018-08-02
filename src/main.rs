@@ -48,6 +48,12 @@ fn main() -> io::Result<()> {
         search_tag(&data, matches.value_of("REGEX").unwrap());
     } else if let Some(matches) = matches.subcommand_matches("roll") {
         roll_dice(matches.value_of("D20_EXPR").unwrap());
+    } else if let Some(matches) = matches.subcommand_matches("list") {
+        list(
+            &data,
+            matches.value_of("CATEGORY").unwrap(),
+            matches.value_of("REGEX").unwrap(),
+        );
     } else {
         subcommand_given = false;
     }
@@ -90,6 +96,18 @@ fn main() -> io::Result<()> {
     }
 
     Ok(())
+}
+
+/// Lists items of the given `category` that match the given `regex`.
+// TODO: use fuzzy matching...
+fn list(data: &Data, category: &str, regex: &str) {
+    match category {
+        m if m.starts_with("mon") => data.monsters.list(regex),
+        m if m.starts_with("mov") => data.moves.list(regex),
+        m if m.starts_with("i") => data.items.list(regex),
+        m if m.starts_with("t") => data.tags.list(regex),
+        _ => unreachable!(),
+    }
 }
 
 /// Prints some usage information about the interactive mode.

@@ -122,6 +122,15 @@ impl Monsters {
         }
         best.1
     }
+    /// List all monsters whose name match the given `regex`.
+    pub fn list(&self, re: &str) {
+        let re = Regex::new(&format!("(?i){}", re)).unwrap();
+        self.data
+            .iter()
+            .filter(|monster| re.is_match(&monster.name))
+            .map(|monster| println!("{}", monster.name))
+            .collect::<Vec<()>>();
+    }
 }
 
 impl fmt::Display for Monster {
