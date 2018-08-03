@@ -60,31 +60,52 @@ The image misses some colors, but they already work!
 
 ### List stuff
 ```
-> cargo run -- list tags n
-n ammo
-+n armor
-+bonus
-n coins
-+n damage
-dangerous
-hand
-ignores armor
-near
-n piercing
-ration
-stun
-thrown
-two-handed
-n uses
-n weight
-worn
+> console-hero list tags n
+>> Tags
+   n ammo
+   +n armor
+   +bonus
+   n coins
+   +n damage
+   dangerous
+   hand
+   ignores armor
+   near
+   n piercing
+   ration
+   stun
+   thrown
+   two-handed
+   n uses
+   n weight
+   worn
 
-> cargo run -- list mon dragon
-Apocalypse Dragon
-Dragon
-Dragon Turtle
-Dragon Whelp
-Dragonbone
+> console-hero list monsters dragon
+>> Monsters
+   Apocalypse Dragon
+   Dragon
+   Dragon Turtle
+   Dragon Whelp
+   Dragonbone
+
+> console-hero list dr
+>> Monsters
+   Apocalypse Dragon
+   Dragon
+   Dragon Turtle
+   Dragon Whelp
+   Dragonbone
+   Draugr
+   Dryad
+   Formian Drone
+   Hydra
+>> Moves
+   Eldritch Chord
+   Eldritch Tome
+   The Druid Sleep
+>> Items
+>> Tags
+
 ```
 
 ## TODO
@@ -95,7 +116,7 @@ Dragonbone
 - [x] Add tags from [tags.json](data/tags.json)
 - [ ] Add classes from [classes.json](data/classes.json)
 - [x] Add items from [items.json](data/items.json)
-- [ ] Complete completion (commands, ...)
+- [x] Complete completion (commands, ...)
 - [x] Add option to evaluate commands non-interactively
 - [x] Add help command `--help`/`help`
 - [x] Unify formatting
