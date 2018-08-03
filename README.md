@@ -1,4 +1,7 @@
-# Console-Hero
+<p align="center">
+  <img width="250" alt="Logo" src="res/d20.svg">
+  <h3>Console-Hero</h3>
+</p>
 
 Your [Dungeon World](http://www.dungeon-world.com/) command line tool.
 Has autocompletion and history, thanks to [rustyline](https://github.com/kkawakam/rustyline) and [clap](https://clap.rs/).
