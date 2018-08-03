@@ -1,7 +1,7 @@
 <p align="center">
   <img width="250" alt="Logo" src="res/d20.svg">
-  <h3>Console-Hero</h3>
 </p>
+  <h1 align="center">Console-Hero</h3>
 
 Your [Dungeon World](http://www.dungeon-world.com/) command line tool.
 Has autocompletion and history, thanks to [rustyline](https://github.com/kkawakam/rustyline) and [clap](https://clap.rs/).
@@ -153,3 +153,5 @@ The image misses some colors, but they already work!
 ---
 
 Thanks to the creators of Dungeon World!
+
+Thanks to [game-icons](https://game-icons.net/) for the logo!
