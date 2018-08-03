@@ -14,12 +14,14 @@ extern crate clap;
 extern crate version;
 extern crate d20;
 
+mod completion;
 mod data;
 mod die;
 #[cfg(test)]
 mod tests;
 
 use clap::App;
+use completion::HeroCompleter;
 use data::Data;
 use rustyline::error::ReadlineError;
 use std::io;
@@ -64,7 +66,8 @@ fn main() -> io::Result<()> {
         let mut rl = rustyline::Editor::new()
             .history_ignore_dups(true)
             .history_ignore_space(true);
-        rl.set_completer(Some(&data));
+        let compl = HeroCompleter::new(&data);
+        rl.set_completer(Some(compl));
 
         // Loop until user wants to exit
         loop {
