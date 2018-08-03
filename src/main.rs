@@ -92,14 +92,11 @@ fn main() -> io::Result<()> {
                 m if m.starts_with("monster ") => search_monster(&data, m),
                 m if m.starts_with("move ") => search_move(&data, m),
                 m if m.starts_with("tag ") => search_tag(&data, m),
-                m if m.starts_with("list ") => {
-                    let mut parts = m.trim_left_matches("list ").splitn(2, " ");
-                    let category = parts.next();
-                    let regex = parts.next();
-                    let default = ".*";
-                    if category.is_some() {
-                        list(&data, category.unwrap(), regex.unwrap_or(&default));
-                    }
+                m if m.starts_with("list") => {
+                    let mut parts = m.trim_left_matches("list").trim().splitn(2, " ");
+                    let category = parts.next().unwrap_or("all");
+                    let regex = parts.next().unwrap_or(".*");
+                    list(&data, category, regex)
                 }
                 "help" | "info" | _ => print_help(),
             }
@@ -110,14 +107,26 @@ fn main() -> io::Result<()> {
 }
 
 /// Lists items of the given `category` that match the given `regex`.
-// TODO: use fuzzy matching...
 fn list(data: &Data, category: &str, regex: &str) {
     match category {
-        m if m.starts_with("mon") => data.monsters.list(regex),
-        m if m.starts_with("mov") => data.moves.list(regex),
-        m if m.starts_with("i") => data.items.list(regex),
-        m if m.starts_with("t") => data.tags.list(regex),
-        _ => unreachable!(),
+        "monsters" => data.monsters.list(regex),
+        "moves" => data.moves.list(regex),
+        "items" => data.items.list(regex),
+        "tags" => data.tags.list(regex),
+        "all" => {
+            data.monsters.list(regex);
+            data.moves.list(regex);
+            data.items.list(regex);
+            data.tags.list(regex);
+        }
+        re if regex == ".*" => {
+            // If category is nothing of the above assume it's a regex
+            // And rerun this function
+            let regex = re;
+            let category = "all";
+            list(data, category, regex)
+        }
+        _ => print_help(),
     }
 }
 

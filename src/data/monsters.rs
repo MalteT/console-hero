@@ -124,11 +124,12 @@ impl Monsters {
     }
     /// List all monsters whose name match the given `regex`.
     pub fn list(&self, re: &str) {
+        println!(">> {}", "Monsters".bold());
         let re = Regex::new(&format!("(?i){}", re)).unwrap();
         self.data
             .iter()
             .filter(|monster| re.is_match(&monster.name))
-            .map(|monster| println!("{}", monster.name))
+            .map(|monster| println!("   {}", monster.name))
             .collect::<Vec<()>>();
     }
 }

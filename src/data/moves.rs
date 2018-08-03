@@ -139,11 +139,12 @@ impl Moves {
     }
     /// List all moves whose name match the given `regex`.
     pub fn list(&self, re: &str) {
+        println!(">> {}", "Moves".bold());
         let re = Regex::new(&format!("(?i){}", re)).unwrap();
         self.data
             .iter()
             .filter(|mv| re.is_match(&mv.name))
-            .map(|mv| println!("{}", mv.name))
+            .map(|mv| println!("   {}", mv.name))
             .collect::<Vec<()>>();
     }
 }

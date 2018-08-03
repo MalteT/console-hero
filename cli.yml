@@ -39,16 +39,27 @@ subcommands:
       about: List all items of the given category matching the optional REGEX
       long_about: |
         List all items of the given category matching the optional REGEX.
+        Usage:
+          list CATEGORY REGEX
+          list REGEX
+          list
         Possible categories include:
-          mon[sters]   List monsters
-          mov[es]      List moves
-          i[tems]      List items
-          t[ags]       List tags
+          all        List everything
+          monsters   List monsters
+          moves      List moves
+          items      List items
+          tags       List tags
+        The category and regex are optional, but you have to specify the cateory if you
+        want to search for something that contains 'all' or 'moves', etc.
+        Examples:
+          console-hero list drag       List everything that contains 'drag'
+          console-hero list monsters   List all monsters
+          console-hero list all moves  List everything that contains 'moves'
       args:
         - CATEGORY:
             help: The category to list items from
             index: 1
-            required: true
+            default_value: 'all'
         - REGEX:
             help: The regex to match against
             index: 2

@@ -74,11 +74,12 @@ impl Tags {
     }
     /// List all tags whose name match the given `regex`.
     pub fn list(&self, re: &str) {
+        println!(">> {}", "Tags".bold());
         let re = Regex::new(&format!("(?i){}", re)).unwrap();
         self.data
             .iter()
             .filter(|tag| re.is_match(&tag.name))
-            .map(|tag| println!("{}", tag.name))
+            .map(|tag| println!("   {}", tag.name))
             .collect::<Vec<()>>();
     }
 }
