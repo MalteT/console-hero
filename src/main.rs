@@ -87,13 +87,21 @@ fn main() -> io::Result<()> {
 
             match readline.as_str() {
                 "quit" | "exit" | "q" => break,
-                "help" | "info" => print_help(),
                 m if m.starts_with("roll") => roll_dice(m),
                 m if m.starts_with("item ") => search_item(&data, m),
                 m if m.starts_with("monster ") => search_monster(&data, m),
                 m if m.starts_with("move ") => search_move(&data, m),
                 m if m.starts_with("tag ") => search_tag(&data, m),
-                _ => {}
+                m if m.starts_with("list ") => {
+                    let mut parts = m.trim_left_matches("list ").splitn(2, " ");
+                    let category = parts.next();
+                    let regex = parts.next();
+                    let default = ".*";
+                    if category.is_some() {
+                        list(&data, category.unwrap(), regex.unwrap_or(&default));
+                    }
+                }
+                "help" | "info" | _ => print_help(),
             }
         }
     }
@@ -118,12 +126,19 @@ fn print_help() {
     println!(
         r#"
 COMMANDS:
-    help | info       Print this usage information
-    quit              Exit interactive mode
-    item    REGEX     Find the first item matching the given REGEX
-    monster REGEX     Find the first monster matching the given REGEX
-    move    REGEX     Find the first move matching the given REGEX
-    tag     REGEX     Find the first tag matching the given REGEX
+    help | info            Print this usage information
+    quit                   Exit interactive mode
+    item    REGEX          Find the first item matching the given REGEX
+    monster REGEX          Find the first monster matching the given REGEX
+    move    REGEX          Find the first move matching the given REGEX
+    tag     REGEX          Find the first tag matching the given REGEX
+    list CATEGORY [REGEX]  List all elements of the given CATEGORY matching REGEX
+
+CATEGORY: One of
+  - mon[sters]
+  - mov[es]
+  - t[ags]
+  - i[tems]
 "#
     );
 }
