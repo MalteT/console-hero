@@ -1,10 +1,17 @@
 # Console-Hero
 
-A [Dungeon World](http://www.dungeon-world.com/) command line helper.
-But has autocompletion and history, thanks to [rustyline](https://github.com/kkawakam/rustyline).
+Your [Dungeon World](http://www.dungeon-world.com/) command line tool.
+Has autocompletion and history, thanks to [rustyline](https://github.com/kkawakam/rustyline) and [clap](https://clap.rs/).
 The data used in this project comes from the [DungeonWorldData](https://github.com/Vindexus/DungeonWorldData) project.
 
-Supports querying monster, items, tags, moves and die rolling.
+## Overview
+- *Query*
+  - monsters: `monster dragon`
+  - items: `item bag`
+  - tags: `tag ammo`
+  - moves: `move help`
+- *Roll* dice: `roll 2d4+19`
+- *List* matching stuff: `list drag`
 
 ## Build
 
@@ -116,6 +123,7 @@ The image misses some colors, but they already work!
 - [x] Add tags from [tags.json](data/tags.json)
 - [ ] Add classes from [classes.json](data/classes.json)
 - [x] Add items from [items.json](data/items.json)
+- [ ] Add spells
 - [x] Complete completion (commands, ...)
 - [x] Add option to evaluate commands non-interactively
 - [x] Add help command `--help`/`help`
