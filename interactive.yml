@@ -1,0 +1,87 @@
+name: Console Hero
+author: Malte Tammena <malte.tammena@gmx.de>
+about: Your GM tool for Dungeon World (http://www.dungeon-world.com/)
+subcommands:
+  - quit:
+      about: Exit interactive mode
+  - info:
+      about: Same as 'help'
+  - list:
+      about: List all items of the given category matching the optional REGEX
+      long_about: |
+        List all items of the given category matching the optional REGEX.
+        Usage:
+          list CATEGORY REGEX
+          list REGEX
+          list
+        Possible categories include:
+          all        List everything
+          monsters   List monsters
+          moves      List moves
+          items      List items
+          tags       List tags
+        The category and regex are optional, but you have to specify the cateory if you
+        want to search for something that contains 'all' or 'moves', etc.
+        Examples:
+          console-hero list drag       List everything that contains 'drag'
+          console-hero list monsters   List all monsters
+          console-hero list all moves  List everything that contains 'moves'
+      args:
+        - CATEGORY:
+            help: The category to list items from
+            index: 1
+            default_value: 'all'
+        - REGEX:
+            help: The regex to match against
+            index: 2
+            default_value: '.*'
+  - roll:
+      about: Roll a die using a d20 expression
+      long_about: |
+        Roll a die using a d20 expression. The expression should be of the form:
+
+              <roll> ::= <some_die> | [ "-" ] <constant> | <roll> [ <add_del> <roll> ]
+          <some_die> ::= <constant> "d" <constant>
+          <constant> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | <constant>
+           <add_del> ::= "+" | "-"
+
+        Examples:
+                     1d6    Roll a normal die
+                    1d20    Roll a die with 20 sides
+                    4d20    Roll 4 die with 20 sides
+                  9d4+14    Roll 9 die with 4 sides and add 14
+               3d3-9+2d6    Roll 3 die with 3 sides subtract 9 and add 2 d6
+                      -9    Return -9
+         -9+25-2+14-7+21    Abuse this program to calculate the answer to everything
+      args:
+        - D20_EXPR:
+            help: D20 expression to evaluate
+            required: true
+  - item:
+      about: Find the first item matching the given regex
+      args:
+        - REGEX:
+            help: Regex to search for
+            required: true
+            multiple: true
+  - monster:
+      about: Find the first monster matching the given regex
+      args:
+        - REGEX:
+            help: Regex to search for
+            required: true
+            multiple: true
+  - move:
+      about: Find the first move matching the given regex
+      args:
+        - REGEX:
+            help: Regex to search for
+            required: true
+            multiple: true
+  - tag:
+      about: Find the first tag matching the given regex
+      args:
+        - REGEX:
+            help: Regex to search for
+            required: true
+            multiple: true

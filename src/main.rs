@@ -28,7 +28,8 @@ use std::io;
 
 fn main() -> io::Result<()> {
     let cli_yaml = load_yaml!("../cli.yml");
-    let matches = App::from_yaml(cli_yaml).version(version!()).get_matches();
+    let app = App::from_yaml(cli_yaml).version(version!());
+    let matches = app.clone().get_matches();
 
     // Load data
     let data = Data::from(
@@ -60,46 +61,96 @@ fn main() -> io::Result<()> {
         subcommand_given = false;
     }
 
-    // Enter interactive mode if no command is given or --interactive is specified
     if !subcommand_given || matches.is_present("interactive") {
-        // Interactive
-        let mut rl = rustyline::Editor::new()
-            .history_ignore_dups(true)
-            .history_ignore_space(true);
-        let compl = HeroCompleter::new(&data);
-        rl.set_completer(Some(compl));
+        interactive(data)?;
+    }
 
-        // Loop until user wants to exit
-        loop {
-            // Read the input
-            let readline = rl.readline(" > ");
-            let readline = match readline {
-                Ok(line) => {
-                    rl.add_history_entry(&line);
-                    line
-                }
-                Err(ReadlineError::Interrupted) | Err(ReadlineError::Eof) => break,
-                Err(err) => {
-                    println!("Error: {:?}", err);
-                    break;
-                }
-            };
+    Ok(())
+}
 
-            match readline.as_str() {
-                "quit" | "exit" | "q" => break,
-                m if m.starts_with("roll") => roll_dice(m),
-                m if m.starts_with("item ") => search_item(&data, m),
-                m if m.starts_with("monster ") => search_monster(&data, m),
-                m if m.starts_with("move ") => search_move(&data, m),
-                m if m.starts_with("tag ") => search_tag(&data, m),
-                m if m.starts_with("list") => {
-                    let mut parts = m.trim_left_matches("list").trim().splitn(2, " ");
-                    let category = parts.next().unwrap_or("all");
-                    let regex = parts.next().unwrap_or(".*");
-                    list(&data, category, regex)
+/// Interactive mode.
+fn interactive(data: Data) -> io::Result<()> {
+    // Initialize clap
+    let yaml_config = load_yaml!("../interactive.yml");
+    let mut app = App::from_yaml(yaml_config).version(version!());
+
+    // Initialize Rustyline
+    let mut rl = rustyline::Editor::new()
+        .history_ignore_dups(true)
+        .history_ignore_space(true);
+    let compl = HeroCompleter::new(&data);
+    rl.set_completer(Some(compl));
+
+    // Loop until the user wants to exit
+    loop {
+        // Read the next input line
+        let matches = match rl.readline(" > ") {
+            Ok(line) => {
+                rl.add_history_entry(&line);
+                let mut args = vec!["console_hero"];
+                args.extend(line.split(" "));
+                match app.clone().get_matches_from_safe(args) {
+                    Ok(matches) => matches,
+                    Err(_) => {
+                        app.print_help()
+                            .map_err(|e| io::Error::new(io::ErrorKind::InvalidInput, e))?;
+                        continue;
+                    }
                 }
-                "help" | "info" | _ => print_help(),
             }
+            Err(ReadlineError::Interrupted) | Err(ReadlineError::Eof) => break,
+            Err(err) => {
+                println!("Error: {:?}", err);
+                break;
+            }
+        };
+
+        let concat = |s, arg| {
+            if s == String::new() {
+                format!("{}", arg)
+            } else {
+                format!("{} {}", s, arg)
+            }
+        };
+        // Parse input
+        if let Some(matches) = matches.subcommand_matches("item") {
+            let re = matches
+                .values_of("REGEX")
+                .unwrap()
+                .fold(String::new(), concat);
+            search_item(&data, &re);
+        } else if let Some(matches) = matches.subcommand_matches("monster") {
+            let re = matches
+                .values_of("REGEX")
+                .unwrap()
+                .fold(String::new(), concat);
+            println!("{}", re);
+            search_monster(&data, &re);
+        } else if let Some(matches) = matches.subcommand_matches("move") {
+            let re = matches
+                .values_of("REGEX")
+                .unwrap()
+                .fold(String::new(), concat);
+            search_move(&data, &re);
+        } else if let Some(matches) = matches.subcommand_matches("tag") {
+            let re = matches
+                .values_of("REGEX")
+                .unwrap()
+                .fold(String::new(), concat);
+            search_tag(&data, &re);
+        } else if let Some(matches) = matches.subcommand_matches("roll") {
+            roll_dice(matches.value_of("D20_EXPR").unwrap());
+        } else if let Some(matches) = matches.subcommand_matches("list") {
+            list(
+                &data,
+                matches.value_of("CATEGORY").unwrap(),
+                matches.value_of("REGEX").unwrap(),
+            );
+        } else if let Some(_) = matches.subcommand_matches("quit") {
+            break;
+        } else if let Some(_) = matches.subcommand_matches("info") {
+            app.print_long_help()
+                .map_err(|e| io::Error::new(io::ErrorKind::InvalidInput, e))?;
         }
     }
 
