@@ -3,6 +3,8 @@
 </p>
   <h1 align="center">Console-Hero</h3>
 
+**Note:** Discontinued.
+
 Your [Dungeon World](http://www.dungeon-world.com/) command line tool.
 Has autocompletion and history, thanks to [rustyline](https://github.com/kkawakam/rustyline) and [clap](https://clap.rs/).
 The data used in this project comes from the [DungeonWorldData](https://github.com/Vindexus/DungeonWorldData) project.
